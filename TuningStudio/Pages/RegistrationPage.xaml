@@ -1,0 +1,49 @@
+﻿<Page x:Class="TuningStudio.Pages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TuningStudio.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegistrationPage" FontFamily="Arial">
+
+    <Grid Background="#2A0B39">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="#888888" BorderThickness="2, 0, 0 , 0" Width="4" Height="450" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="6"/>
+
+        <Image Source="../Pictures/Logo.png" Grid.Column="0" Grid.Row="0" Margin="10 0 10 0"/>
+
+        <Label Content="Registration" Grid.Row="0" Grid.Column="1" FontSize="25" Foreground="#888888" VerticalAlignment="Center" Margin="20 0 0 0"/>
+
+        <Label Content="First Name" Grid.Row="1" Grid.Column="1" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="NewFirstNameTB" Grid.Row ="2" Grid.Column ="1" Width="150" Height="40" FontSize="15"/>
+
+        <Label Content="Last Name" Grid.Row="1" Grid.Column="2" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="NewLastNameTB" Grid.Row ="2" Grid.Column ="2" Width="150" Height="40" FontSize="15"/>
+
+        <Label Content="Phone number" Grid.Row="1" Grid.Column="3" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="NewPhoneNumberTB" Grid.Row ="2" Grid.Column ="3" Width="150" Height="40" FontSize="15"/>
+
+        <Label Content="Login" Grid.Row="3" Grid.Column="1" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="NewLoginTB" Grid.Row ="4" Grid.Column ="1" Width="150" Height="40" FontSize="15"/>
+
+        <Label Content="Password" Grid.Row="3" Grid.Column="2" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
+        <PasswordBox x:Name="NewPasswordPB" Grid.Row ="4" Grid.Column ="2" Width="150" Height="40" FontSize="15"/>
+
+        <Button x:Name="AddUserButton" Content="OK" Grid.Column="2" Grid.Row="5" Width="100" Height="30" Background="#fff" Foreground="#393838" FontWeight="Medium" FontSize="15" Click="AddUserButton_Click"/>
+    </Grid>
+</Page>

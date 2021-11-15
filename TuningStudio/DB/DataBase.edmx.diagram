@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="05ae965b68af4fd29a8e152cae05fe97" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Autopart" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Autorization" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Body" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Brand" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Client" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Color" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Country" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Manufacturer" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Model" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Order" Width="1.5" PointX="12" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Role" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.TypeOfWork" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Vehicle" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Autopart_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Autopart_TypeOfWork" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Autorization_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Autorization_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Body_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Vehicle_Body" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Brand_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Model_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Vehicle_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Vehicle_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Manufacturer_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Repair_TypeOfWork" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Repair_Vehicle" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
