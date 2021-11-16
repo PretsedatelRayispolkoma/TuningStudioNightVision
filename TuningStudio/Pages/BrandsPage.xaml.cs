@@ -12,30 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TuningStudio.DB;
 
 namespace TuningStudio.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для BrandsPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class BrandsPage : Page
     {
-        public MainPage()
+        public BrandsPage()
         {
             InitializeComponent();
+        }
 
-            var typeOfWork = MainWindow.db.TypeOfWork.ToList();
-            
-
-            var currentOrders = MainWindow.db.Order.ToList();
-
-
-            Autorization currentAuth = new Autorization();
-
-
-
-            OrdersLV.ItemsSource = currentOrders;
+        private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new MainPage());
         }
 
         private void VehiclesButton_Click(object sender, RoutedEventArgs e)
@@ -43,17 +35,12 @@ namespace TuningStudio.Pages
             this.NavigationService.Navigate(new VehiclesPage());
         }
 
-        private void BrandsButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new BrandsPage());
-        }
-
         private void ServicesButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new ServicesPage());
         }
 
-        private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        private void BrandsButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Refresh();
         }

@@ -31,9 +31,9 @@
         <TextBox x:Name="LoginTB" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="30" Style="{DynamicResource NewTBStyle}" FontSize="20"/>
 
         <Label Content="Password" Grid.Column="0" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="15" Foreground="#888888" Margin="90 0 20 0"/>
-        <TextBox x:Name="PasswordTB" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  Width="200" Height="30" Style="{DynamicResource NewTBStyle}" FontSize="20"/>
+        <PasswordBox x:Name="PasswordPB" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  Width="200" Height="30"  FontSize="20" Style="{DynamicResource PasswordBoxStyle}"/>
 
-        <Button x:Name="LogInButton" Content="Go!" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Width="120" Height="30" Background="#fff" Foreground="#393838" FontWeight="Medium" FontSize="20" Style="{DynamicResource NewButtonStyle}"/>
+        <Button x:Name="LogInButton" Content="Go!" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Width="120" Background="#fff" Foreground="#393838" FontWeight="Medium" FontSize="20" Style="{DynamicResource NewButtonStyle}" Margin="340,36,340,0" Height="30" VerticalAlignment="Top" Click="LogInButton_Click"/>
 
         <Button x:Name="SignUpButton" Background="Transparent" Content="Sign up" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" Foreground="#fff" VerticalAlignment="Center" BorderThickness="0" BorderBrush="Transparent" Width="50" Click="SignUpButton_Click" />
     </Grid>

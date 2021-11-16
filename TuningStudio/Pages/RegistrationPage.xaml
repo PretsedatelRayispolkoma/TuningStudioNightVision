@@ -30,20 +30,20 @@
         <Label Content="Registration" Grid.Row="0" Grid.Column="1" FontSize="25" Foreground="#888888" VerticalAlignment="Center" Margin="20 0 0 0"/>
 
         <Label Content="First Name" Grid.Row="1" Grid.Column="1" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="NewFirstNameTB" Grid.Row ="2" Grid.Column ="1" Width="150" Height="40" FontSize="15"/>
+        <TextBox x:Name="NewFirstNameTB" Grid.Row ="2" Grid.Column ="1" Width="150" Height="40" FontSize="15" Style="{DynamicResource NewTBStyle}"/>
 
         <Label Content="Last Name" Grid.Row="1" Grid.Column="2" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="NewLastNameTB" Grid.Row ="2" Grid.Column ="2" Width="150" Height="40" FontSize="15"/>
+        <TextBox x:Name="NewLastNameTB" Grid.Row ="2" Grid.Column ="2" Width="150" Height="40" FontSize="15" Style="{DynamicResource NewTBStyle}"/>
 
         <Label Content="Phone number" Grid.Row="1" Grid.Column="3" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="NewPhoneNumberTB" Grid.Row ="2" Grid.Column ="3" Width="150" Height="40" FontSize="15"/>
+        <TextBox x:Name="NewPhoneNumberTB" Grid.Row ="2" Grid.Column ="3" Width="150" Height="40" FontSize="15" Style="{DynamicResource NewTBStyle}"/>
 
         <Label Content="Login" Grid.Row="3" Grid.Column="1" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="NewLoginTB" Grid.Row ="4" Grid.Column ="1" Width="150" Height="40" FontSize="15"/>
+        <TextBox x:Name="NewLoginTB" Grid.Row ="4" Grid.Column ="1" Width="150" Height="40" FontSize="15" Style="{DynamicResource NewTBStyle}"/>
 
         <Label Content="Password" Grid.Row="3" Grid.Column="2" FontSize="15" Foreground="#888888" Margin="20 0 10 0" VerticalAlignment="Bottom"/>
-        <PasswordBox x:Name="NewPasswordPB" Grid.Row ="4" Grid.Column ="2" Width="150" Height="40" FontSize="15"/>
+        <PasswordBox x:Name="NewPasswordPB" Grid.Row ="4" Grid.Column ="2" Width="150" Height="40" FontSize="15" Style="{DynamicResource PasswordBoxStyle}"/>
 
-        <Button x:Name="AddUserButton" Content="OK" Grid.Column="2" Grid.Row="5" Width="100" Height="30" Background="#fff" Foreground="#393838" FontWeight="Medium" FontSize="15" Click="AddUserButton_Click"/>
+        <Button x:Name="AddUserButton" Content="OK" Grid.Column="2" Grid.Row="5" Width="100" Height="30" Background="#fff" Foreground="#393838" FontWeight="Medium" FontSize="15" Click="AddUserButton_Click" Style="{DynamicResource NewButtonStyle}"/>
     </Grid>
 </Page>
