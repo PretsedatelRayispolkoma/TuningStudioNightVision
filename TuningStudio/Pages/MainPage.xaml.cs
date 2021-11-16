@@ -25,16 +25,7 @@ namespace TuningStudio.Pages
         {
             InitializeComponent();
 
-            var typeOfWork = MainWindow.db.TypeOfWork.ToList();
-            
-
             var currentOrders = MainWindow.db.Order.ToList();
-
-
-            Autorization currentAuth = new Autorization();
-
-
-
             OrdersLV.ItemsSource = currentOrders;
         }
 

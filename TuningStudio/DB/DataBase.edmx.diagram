@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="05ae965b68af4fd29a8e152cae05fe97" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="b394226c75174ed99be0cbed2c7bb87a" Name="Diagram1">
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Autopart" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Autorization" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Body" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
@@ -30,8 +30,8 @@
         <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Vehicle_Client" ManuallyRouted="false" />
         <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Vehicle_Color" ManuallyRouted="false" />
         <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Manufacturer_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Repair_TypeOfWork" ManuallyRouted="false" />
-        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Repair_Vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Order_TypeOfWork" ManuallyRouted="false" />
+        <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Order_Vehicle" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

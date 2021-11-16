@@ -23,6 +23,8 @@ namespace TuningStudio
     public partial class MainWindow : Window
     {
         public static Yapparov321AtelyeNightVisionEntities db = new Yapparov321AtelyeNightVisionEntities();
+        public static int IDClient;
+
         public MainWindow()
         {
             InitializeComponent();

@@ -33,22 +33,31 @@ namespace TuningStudio.Pages
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var authUser in MainWindow.db.Autorization)
+            if (LoginTB.Text == "" || PasswordPB.Password == "")
             {
-                if (authUser.Login == LoginTB.Text.Trim())
+                MessageBox.Show("Enter your username or password");
+            }
+            else 
+            {
+                foreach (var authUser in MainWindow.db.Autorization)
                 {
-                    if (authUser.Password == PasswordPB.Password.Trim() && authUser.RoleID == 2)
+                    if (authUser.Login == LoginTB.Text.Trim())
                     {
-                        MessageBox.Show("Hi, dude..");
-                        this.NavigationService.Navigate(new MainPage());
+                        if (authUser.Password == PasswordPB.Password.Trim() && authUser.RoleID == 2)
+                        {
+                            MessageBox.Show("Hi, dude..");
+                            MainWindow.IDClient = authUser.ClientID;
+                        
+                            this.NavigationService.Navigate(new MainPage());
+                        }
+                        if (authUser.Password == PasswordPB.Password.Trim() && authUser.RoleID == 1)
+                        {
+                            MessageBox.Show("Hello, Boss");
+                            this.NavigationService.Navigate(new MainPage());
+                        }
                     }
-                    if (authUser.Password == PasswordPB.Password.Trim() && authUser.RoleID == 1)
-                    {
-                        MessageBox.Show("Hello, Boss");
-                        this.NavigationService.Navigate(new MainPage());
-                    }
-                }
-            } 
+                } 
+            }
         }
     }
 }

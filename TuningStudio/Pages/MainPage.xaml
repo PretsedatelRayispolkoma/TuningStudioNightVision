@@ -31,8 +31,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Button x:Name="VehiclesButton" Content="Vehicles" FontSize="15" Foreground="#888888" Grid.Row="1" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="VehiclesButton_Click" />
-                <Button x:Name="ServicesButton" Content="Services" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
-                <Button x:Name="BrandsButton" Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click" />
+                <Button x:Name="ServicesButton" Content="Services" FontSize="15" Foreground="#888888" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
+                <Button x:Name="BrandsButton" Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click" />
                 <Button x:Name="OrdersButton" Content="Orders" FontSize="15" Foreground="#fff" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="OrdersButton_Click" />
             </Grid>
         </StackPanel>
@@ -41,13 +41,14 @@
         <ListView  Style="{DynamicResource ListViewStyle}" x:Name="OrdersLV" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20 0 20 50" Background="#C4C4C4">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="10">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
+                        <TextBlock FontSize="15" Grid.Column="1" Text ="{Binding Path = TypeOfWork}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

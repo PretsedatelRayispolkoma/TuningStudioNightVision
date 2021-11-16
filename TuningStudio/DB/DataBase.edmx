@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Yapparov321AtelyeNightVisionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Yapparov321AtelyeNightVisionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Autopart">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Unit" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="GuaranteeMonth" Type="int" Nullable="false" />
@@ -20,7 +20,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RoleID" Type="int" Nullable="false" />
@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfBody" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ModelID" Type="int" Nullable="false" />
         </EntityType>
@@ -38,7 +38,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfBrand" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CountryID" Type="int" Nullable="false" />
         </EntityType>
@@ -46,7 +46,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -55,21 +55,21 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfColor" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfCountry" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Manufacturer">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfManufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CountryID" Type="int" Nullable="false" />
           <Property Name="Rating" Type="float" Nullable="false" />
@@ -78,7 +78,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfModel" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BrandID" Type="int" Nullable="false" />
         </EntityType>
@@ -95,7 +95,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfRole" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -112,7 +112,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfWork" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
@@ -120,7 +120,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VINCode" Type="nvarchar" MaxLength="17" Nullable="false" />
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="ColorID" Type="int" Nullable="false" />
@@ -223,7 +223,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Repair_TypeOfWork">
+        <Association Name="FK_Order_TypeOfWork">
           <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -235,7 +235,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Repair_Vehicle">
+        <Association Name="FK_Order_Vehicle">
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -330,11 +330,11 @@
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Model" EntitySet="Model" />
           </AssociationSet>
-          <AssociationSet Name="FK_Repair_TypeOfWork" Association="Self.FK_Repair_TypeOfWork">
+          <AssociationSet Name="FK_Order_TypeOfWork" Association="Self.FK_Order_TypeOfWork">
             <End Role="TypeOfWork" EntitySet="TypeOfWork" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Repair_Vehicle" Association="Self.FK_Repair_Vehicle">
+          <AssociationSet Name="FK_Order_Vehicle" Association="Self.FK_Order_Vehicle">
             <End Role="Vehicle" EntitySet="Vehicle" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
@@ -351,8 +351,7 @@
             <End Role="Vehicle" EntitySet="Vehicle" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Yapparov321AtelyeNightVisionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -360,7 +359,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="GuaranteeMonth" Type="Int32" Nullable="false" />
@@ -373,7 +372,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleID" Type="Int32" Nullable="false" />
@@ -385,7 +384,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfBody" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ModelID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Model" Relationship="Self.FK_Body_Model" FromRole="Body" ToRole="Model" />
@@ -395,7 +394,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfBrand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CountryID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Country" Relationship="Self.FK_Brand_Country" FromRole="Brand" ToRole="Country" />
@@ -405,7 +404,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -416,7 +415,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Vehicle" Relationship="Self.FK_Vehicle_Color" FromRole="Color" ToRole="Vehicle" />
         </EntityType>
@@ -424,7 +423,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Brand" Relationship="Self.FK_Brand_Country" FromRole="Country" ToRole="Brand" />
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Manufacturer_Country" FromRole="Country" ToRole="Manufacturer" />
@@ -433,7 +432,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CountryID" Type="Int32" Nullable="false" />
           <Property Name="Rating" Type="Double" Nullable="false" />
@@ -444,7 +443,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BrandID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Body" Relationship="Self.FK_Body_Model" FromRole="Model" ToRole="Body" />
@@ -458,14 +457,14 @@
           <Property Name="TypeOfWorkID" Type="Int32" Nullable="false" />
           <Property Name="VehicleID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TypeOfWork" Relationship="Self.FK_Repair_TypeOfWork" FromRole="Order" ToRole="TypeOfWork" />
-          <NavigationProperty Name="Vehicle" Relationship="Self.FK_Repair_Vehicle" FromRole="Order" ToRole="Vehicle" />
+          <NavigationProperty Name="TypeOfWork" Relationship="Self.FK_Order_TypeOfWork" FromRole="Order" ToRole="TypeOfWork" />
+          <NavigationProperty Name="Vehicle" Relationship="Self.FK_Order_Vehicle" FromRole="Order" ToRole="Vehicle" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Autorization" Relationship="Self.FK_Autorization_Role" FromRole="Role" ToRole="Autorization" />
         </EntityType>
@@ -483,17 +482,17 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Autopart" Relationship="Self.FK_Autopart_TypeOfWork" FromRole="TypeOfWork" ToRole="Autopart" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Repair_TypeOfWork" FromRole="TypeOfWork" ToRole="Order" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_TypeOfWork" FromRole="TypeOfWork" ToRole="Order" />
         </EntityType>
         <EntityType Name="Vehicle">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VINCode" Type="String" MaxLength="17" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Year" Type="Int32" Nullable="false" />
           <Property Name="ColorID" Type="Int32" Nullable="false" />
@@ -502,7 +501,7 @@
           <NavigationProperty Name="Body" Relationship="Self.FK_Vehicle_Body" FromRole="Vehicle" ToRole="Body" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Vehicle_Client" FromRole="Vehicle" ToRole="Client" />
           <NavigationProperty Name="Color" Relationship="Self.FK_Vehicle_Color" FromRole="Vehicle" ToRole="Color" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Repair_Vehicle" FromRole="Vehicle" ToRole="Order" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Vehicle" FromRole="Vehicle" ToRole="Order" />
         </EntityType>
         <Association Name="FK_Autopart_Manufacturer">
           <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
@@ -636,7 +635,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Repair_TypeOfWork">
+        <Association Name="FK_Order_TypeOfWork">
           <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -648,7 +647,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Repair_Vehicle">
+        <Association Name="FK_Order_Vehicle">
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -719,11 +718,11 @@
             <End Role="Country" EntitySet="Country" />
             <End Role="Manufacturer" EntitySet="Manufacturer" />
           </AssociationSet>
-          <AssociationSet Name="FK_Repair_TypeOfWork" Association="Self.FK_Repair_TypeOfWork">
+          <AssociationSet Name="FK_Order_TypeOfWork" Association="Self.FK_Order_TypeOfWork">
             <End Role="TypeOfWork" EntitySet="TypeOfWork" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Repair_Vehicle" Association="Self.FK_Repair_Vehicle">
+          <AssociationSet Name="FK_Order_Vehicle" Association="Self.FK_Order_Vehicle">
             <End Role="Vehicle" EntitySet="Vehicle" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>

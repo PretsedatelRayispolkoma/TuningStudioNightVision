@@ -29,7 +29,7 @@ namespace TuningStudio.Pages
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
 
-            if(NewFirstNameTB.Text == null || NewLastNameTB.Text == null || NewPhoneNumberTB.Text == null || NewLoginTB.Text == null || NewPasswordPB.Password.Trim() == null)
+            if(NewFirstNameTB.Text == "" || NewLastNameTB.Text == "" || NewPhoneNumberTB.Text == "" || NewLoginTB.Text == "" || NewPasswordPB.Password.Trim() == "")
             {
                 MessageBox.Show("Enter the data in full");
             }
@@ -40,12 +40,12 @@ namespace TuningStudio.Pages
                 Autorization newUser = new Autorization();
                 string newLogin = NewLoginTB.Text;
 
-                foreach (var login in MainWindow.db.Autorization)
+                foreach (var user in MainWindow.db.Autorization)
                 {
-                    if (NewLoginTB.Text.Trim() == login.Login)
+                    if (NewLoginTB.Text.Trim() == user.Login)
                     {
                         MessageBox.Show("The login already exist");
-                        break;
+                        return;
                     }
                 }
                 
@@ -56,12 +56,12 @@ namespace TuningStudio.Pages
                 newUser.Password = NewPasswordPB.Password.Trim();
                 newUser.RoleID = 2;
                 newUser.ClientID = newClient.ID;
-                MainWindow.db.Autorization.Add(newUser);
                 MainWindow.db.Client.Add(newClient);
-               // MainWindow.db.SaveChanges();
+                MainWindow.db.Autorization.Add(newUser);
+                MainWindow.db.SaveChanges();
                 MessageBox.Show("The registration is successful");
                 this.NavigationService.GoBack();
-                    
+               
             }         
         }
     }
