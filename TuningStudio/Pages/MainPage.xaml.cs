@@ -25,6 +25,11 @@ namespace TuningStudio.Pages
         {
             InitializeComponent();
 
+            DBToList();
+        }
+
+        private void DBToList()
+        {
             var currentOrders = MainWindow.db.Order.ToList();
             OrdersLV.ItemsSource = currentOrders;
         }

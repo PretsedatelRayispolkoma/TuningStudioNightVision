@@ -38,20 +38,14 @@
         </StackPanel>
         <Button x:Name="AddOrderButton" Grid.Column="0" Grid.Row="2" Content="Add order" Width="150" Height="40" Background="#C4C4C4" Style="{DynamicResource NewButtonStyle}"/>
 
-        <ListView  Style="{DynamicResource ListViewStyle}" x:Name="OrdersLV" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20 0 20 50" Background="#C4C4C4">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock FontSize="15" Grid.Column="1" Text ="{Binding Path = TypeOfWork}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+        <ListView Style="{DynamicResource ListViewStyle}" x:Name="OrdersLV" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20 0 20 50" Background="#C4C4C4">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = TypeOfWorkID}" Header="Type of work"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = VehicleID}" Header="Vehicle"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Price}" Header="Price"/>
+                </GridView>
+            </ListView.View>
         </ListView>
     </Grid>
 </Page>

@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TuningStudio.DB;
-using TuningStudio.Pages;
 
-namespace TuningStudio
+namespace TuningStudio.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AddOrderPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddOrderPage : Page
     {
-        public static Yapparov321AtelyeNightVisionEntities db = new Yapparov321AtelyeNightVisionEntities();
-        public static int IDClient;
-        public static int IDRole;
-
-        public MainWindow()
+        public AddOrderPage()
         {
             InitializeComponent();
-            MainFrame.Content = new AutorizationPage();
         }
     }
 }

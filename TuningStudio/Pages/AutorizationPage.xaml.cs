@@ -47,12 +47,13 @@ namespace TuningStudio.Pages
                         {
                             MessageBox.Show("Hi, dude..");
                             MainWindow.IDClient = authUser.ClientID;
-                        
+                            MainWindow.IDRole = authUser.RoleID;
                             this.NavigationService.Navigate(new MainPage());
                         }
                         if (authUser.Password == PasswordPB.Password.Trim() && authUser.RoleID == 1)
                         {
                             MessageBox.Show("Hello, Boss");
+                            MainWindow.IDRole = authUser.RoleID;
                             this.NavigationService.Navigate(new MainPage());
                         }
                     }
