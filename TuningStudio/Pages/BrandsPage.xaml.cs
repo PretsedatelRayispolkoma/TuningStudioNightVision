@@ -44,5 +44,19 @@ namespace TuningStudio.Pages
         {
             this.NavigationService.Refresh();
         }
+
+        private void BrandsPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            var currentRole = MainWindow.IDRole;
+            if(currentRole == 2)
+            {
+                AddBrandButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                AddBrandButton.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
+

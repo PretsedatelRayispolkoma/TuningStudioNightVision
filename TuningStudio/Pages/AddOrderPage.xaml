@@ -31,12 +31,12 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Vehicle" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#c4c4c4"/>
-            <ComboBox x:Name="NewVehiclesCB" Grid.Row="1" Width="300" Height="30"/>
+            <ComboBox x:Name="NewVehiclesCB" Grid.Row="1" Width="300" Height="30" Loaded="NewVehiclesCB_Loaded"/>
 
             <Label Content="Type of Work" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#c4c4c4"/>
-            <ComboBox x:Name="NewTypeOfWorkCB" Grid.Row="3" Grid.Column="0" Width="300" Height="30" />
+            <ComboBox x:Name="NewTypeOfWorkCB" Grid.Row="3" Grid.Column="0" Width="300" Height="30" Loaded="NewTypeOfWorkCB_Loaded" />
 
-            <Button x:Name="AddOrderBtn" Grid.Row="4" Grid.RowSpan="2" Width="100" Height="30" Content="Add" Foreground="DimGray" FontSize="15"/>
+            <Button x:Name="AddOrderBtn" Grid.Row="4" Grid.RowSpan="2" Width="100" Height="30" Content="Add" Foreground="DimGray" FontSize="15" Click="AddOrderBtn_Click"/>
         </Grid>
 
     </Grid>

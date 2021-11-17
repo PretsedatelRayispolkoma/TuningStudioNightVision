@@ -24,5 +24,16 @@ namespace TuningStudio.Pages
         {
             InitializeComponent();
         }
+
+        private void NewColorCB_Loaded(object sender, RoutedEventArgs e)
+        {
+            NewColorCB.ItemsSource = MainWindow.db.Color;
+            NewColorCB.DisplayMemberPath = "NameOFColor";
+        }
+
+        private void NewBodyCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

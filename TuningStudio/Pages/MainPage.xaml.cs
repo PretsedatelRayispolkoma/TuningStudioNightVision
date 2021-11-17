@@ -24,14 +24,6 @@ namespace TuningStudio.Pages
         public MainPage()
         {
             InitializeComponent();
-
-            DBToList();
-        }
-
-        private void DBToList()
-        {
-            var currentOrders = MainWindow.db.Order.ToList();
-            OrdersLV.ItemsSource = currentOrders;
         }
 
         private void VehiclesButton_Click(object sender, RoutedEventArgs e)
@@ -52,6 +44,42 @@ namespace TuningStudio.Pages
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Refresh();
+        }
+
+        private void AddOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddOrderPage());
+        }
+
+        private void OrdersLV_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (MainWindow.IDRole == 2)
+            {
+                var yourOrders = from veh in MainWindow.db.Vehicle
+                                 join ord in MainWindow.db.Order on veh.ID equals ord.VehicleID
+                                 join tow in MainWindow.db.TypeOfWork on ord.TypeOfWorkID equals tow.ID
+                                 where veh.ClientID == MainWindow.IDClient
+                                 select new
+                                 {
+                                     veh.ClientID,
+                                     veh.VINCode,
+                                     tow.NameOfWork
+                                 };
+                OrdersLV.ItemsSource = yourOrders.ToList();
+            }
+            else
+            {
+                var allOrders = from veh in MainWindow.db.Vehicle
+                                join ord in MainWindow.db.Order on veh.ID equals ord.VehicleID
+                                join tow in MainWindow.db.TypeOfWork on ord.TypeOfWorkID equals tow.ID
+                                select new
+                                {
+                                    veh.ClientID,
+                                    veh.VINCode,
+                                    tow.NameOfWork
+                                };
+                OrdersLV.ItemsSource = allOrders.ToList();
+            }
         }
     }
 }

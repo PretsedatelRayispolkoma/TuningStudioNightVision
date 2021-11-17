@@ -44,5 +44,24 @@ namespace TuningStudio.Pages
         {
             this.NavigationService.Navigate(new BrandsPage());
         }
+
+        private void VehiclesLV_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.IDRole == 2)
+            {
+                var yourVehicles = from color in MainWindow.db.Color
+                                   join vehicle in MainWindow.db.Vehicle on color.ID equals vehicle.ColorID
+                                   join body in MainWindow.db.Body on vehicle.BodyID equals body.ID
+                                   where vehicle.ClientID == MainWindow.IDClient
+                                   select new
+                                   {
+                                       body.NameOfBody,
+                                       vehicle.VINCode,
+                                       vehicle.Year,
+                                       color.NameOfColor
+                                   };
+                VehiclesLV.ItemsSource = yourVehicles.ToList();
+            }
+        }
     }
 }
