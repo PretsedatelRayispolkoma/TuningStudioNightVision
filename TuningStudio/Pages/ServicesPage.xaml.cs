@@ -42,7 +42,11 @@ namespace TuningStudio.Pages
 
         private void BrandsButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new BrandsPage());
+        }
+
+        private void AddServiceButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

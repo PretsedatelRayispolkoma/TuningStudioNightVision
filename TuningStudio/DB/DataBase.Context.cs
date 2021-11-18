@@ -36,7 +36,6 @@ namespace TuningStudio.DB
         public virtual DbSet<Model> Model { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfWork> TypeOfWork { get; set; }
         public virtual DbSet<Vehicle> Vehicle { get; set; }
     }

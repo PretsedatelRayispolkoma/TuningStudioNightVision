@@ -38,11 +38,12 @@
                 <Button x:Name="OrdersButton" Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" VerticalAlignment="Top" Click="OrdersButton_Click" />
             </Grid>
         </StackPanel>
-        <Button x:Name="AddVehicleButton" Grid.Column="0" Grid.Row="3" Content="Add Vehicle" Background="#C4C4C4" Style="{DynamicResource NewButtonStyle}" Margin="56,55,0,55"/>
+        <Button x:Name="AddVehicleButton" Grid.Column="0" Grid.Row="3" Content="Add Vehicle" Background="#C4C4C4" Style="{DynamicResource NewButtonStyle}" Margin="56,55,0,55" Click="AddVehicleButton_Click"/>
 
         <ListView x:Name="VehiclesLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#fff" Loaded="VehiclesLV_Loaded">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = ClientID}" Header="ID of client" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = VINCode}" Header="VIN-Code" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Year}" Header="Year" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfColor}" Header="Color" Width="auto"/>
