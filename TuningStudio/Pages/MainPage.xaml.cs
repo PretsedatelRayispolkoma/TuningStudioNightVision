@@ -61,13 +61,12 @@ namespace TuningStudio.Pages
                                  where veh.ClientID == MainWindow.IDClient
                                  select new
                                  {
-                                     veh.ClientID,
                                      veh.VINCode,
                                      tow.NameOfWork
                                  };
                 OrdersLV.ItemsSource = yourOrders.ToList();
             }
-            else
+            else if(MainWindow.IDRole == 1)
             {
                 var allOrders = from veh in MainWindow.db.Vehicle
                                 join ord in MainWindow.db.Order on veh.ID equals ord.VehicleID

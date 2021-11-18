@@ -44,6 +44,30 @@ namespace TuningStudio.Pages
         {
         }
 
+        private void AddServiceButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.IDRole != 1)
+            {
+                AddServiceButton.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ServicesLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ServicesLV_Loaded(object sender, RoutedEventArgs e)
+        {
+            var allServices = from serv in MainWindow.db.TypeOfWork
+                              select new
+                              { 
+                                serv.NameOfWork,
+                                serv.Description
+                              };
+            ServicesLV.ItemsSource = allServices.ToList();
+        }
+
         private void AddServiceButton_Click(object sender, RoutedEventArgs e)
         {
 

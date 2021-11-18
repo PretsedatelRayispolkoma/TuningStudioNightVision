@@ -52,7 +52,7 @@
             <ComboBox x:Name="NewBodyCB" Grid.Row="5" Grid.Column="0" Width="250" Height="30" SelectionChanged="NewBodyCB_SelectionChanged" Loaded="NewBodyCB_Loaded" />
 
             <Label Content="Brand" Grid.Row="0" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#c4c4c4"/>
-            <ComboBox x:Name="NewBrandCB" Grid.Row="1" Grid.Column="0" Width="250" Height="30" Loaded="NewBrandCB_Loaded" SelectionChanged="NewBrandCB_SelectionChanged"/>
+            <ComboBox x:Name="NewBrandCB" Grid.Row="1" Grid.Column="0" Width="250" Height="30" Loaded="NewBrandCB_Loaded" SelectionChanged="NewBrandCB_SelectionChanged" />
 
             <Label Content="Model" Grid.Row="2" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#c4c4c4"/>
             <ComboBox x:Name="NewModelCB" Grid.Column="0" Grid.Row="3" Width="250" Height="30" Loaded="NewModelCB_Loaded" SelectionChanged="NewModelCB_SelectionChanged"/>

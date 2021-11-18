@@ -135,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddVehiclepage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +171,9 @@
   <ItemGroup>
     <Compile Include="Pages\AddOrderPage.xaml.cs">
       <DependentUpon>AddOrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddService.xaml.cs">
+      <DependentUpon>AddService.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddVehiclepage.xaml.cs">
       <DependentUpon>AddVehiclepage.xaml</DependentUpon>

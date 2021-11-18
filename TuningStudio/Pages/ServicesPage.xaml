@@ -10,9 +10,9 @@
 
     <Grid Background="#2A0B39">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="162*"/>
+            <ColumnDefinition Width="133*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -20,9 +20,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" Width="200" VerticalAlignment="Top"/>
+        <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="104" Margin="32,0,31,0"/>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="80" Margin="0,35">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -36,21 +36,15 @@
                 <Button x:Name="OrdersButton" Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent"  VerticalAlignment="Top" Click="OrdersButton_Click" />
             </Grid>
         </StackPanel>
-        <Button x:Name="AddServiceButton" Grid.Column="0" Grid.Row="2" Content="Add new Service" Width="150" Height="40" Background="#C4C4C4" Style="{DynamicResource NewButtonStyle}"/>
+        <Button x:Name="AddServiceButton" Grid.Column="0" Grid.Row="2" Content="Add new Service" Background="#C4C4C4" Style="{DynamicResource NewButtonStyle}" Loaded="AddServiceButton_Loaded" Margin="56,55,57,55" Click="AddServiceButton_Click"/>
 
-        <ListView Style="{DynamicResource ListViewStyle}" x:Name="ServicesLV" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20 0 20 50" Background="#C4C4C4">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+        <ListView x:Name="ServicesLV" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" Background="#C4C4C4" Loaded="ServicesLV_Loaded">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfWork}" Header="Work" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Description}" Header="Description" Width="auto"/>
+                </GridView>
+            </ListView.View>
         </ListView>
     </Grid>
 </Page>

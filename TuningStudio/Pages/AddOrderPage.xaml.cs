@@ -28,21 +28,31 @@ namespace TuningStudio.Pages
 
         private void NewVehiclesCB_Loaded(object sender, RoutedEventArgs e)
         {
-            NewVehiclesCB.ItemsSource = MainWindow.db.Vehicle.ToList();
+            var currentUserCars = from vehicle in MainWindow.db.Vehicle
+                                  where vehicle.ClientID == MainWindow.IDClient
+                                  select vehicle;
+            NewVehiclesCB.ItemsSource = currentUserCars.ToList();
             NewVehiclesCB.DisplayMemberPath = "VINCode";
         }
 
         private void AddOrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            var selectedType = NewTypeOfWorkCB.SelectedItem as TypeOfWork;
-            var selectedVehicle = NewVehiclesCB.SelectedItem as Vehicle;
-            Order order = new Order();
-            order.TypeOfWorkID = selectedType.ID;
-            order.VehicleID = selectedVehicle.ID;
-            MainWindow.db.Order.Add(order);
-            MainWindow.db.SaveChanges();
-            MessageBox.Show("Your order is successfully added");
-            this.NavigationService.GoBack();
+            if (NewTypeOfWorkCB.SelectedItem == null || NewVehiclesCB.SelectedItem == null)
+            {
+                MessageBox.Show("Enter the data");
+            }
+            else
+            {
+                var selectedType = NewTypeOfWorkCB.SelectedItem as TypeOfWork;
+                var selectedVehicle = NewVehiclesCB.SelectedItem as Vehicle;
+                Order order = new Order();
+                order.TypeOfWorkID = selectedType.ID;
+                order.VehicleID = selectedVehicle.ID;
+                MainWindow.db.Order.Add(order);
+                MainWindow.db.SaveChanges();
+                MessageBox.Show("Your order is successfully added");
+                this.NavigationService.GoBack();
+            }
         }
 
         private void NewTypeOfWorkCB_Loaded(object sender, RoutedEventArgs e)

@@ -39,7 +39,7 @@ namespace TuningStudio.Pages
                 VinCodeTB.IsEnabled = true;
                 
                 NewColorCB.IsEnabled = true;
-                NewColorCB.ItemsSource = MainWindow.db.Color;
+                NewColorCB.ItemsSource = MainWindow.db.Color.ToList();
                 NewColorCB.DisplayMemberPath = "NameOfColor";
 
                 yearTB.IsEnabled = true;
@@ -54,8 +54,8 @@ namespace TuningStudio.Pages
 
         private void NewBrandCB_Loaded(object sender, RoutedEventArgs e)
         {
-            NewBodyCB.ItemsSource = MainWindow.db.Brand;
-            NewBodyCB.DisplayMemberPath = "NameOfBrand";
+            NewBrandCB.ItemsSource = MainWindow.db.Brand.ToList();
+            NewBrandCB.DisplayMemberPath = "NameOfBrand";
         }
 
         private void NewModelCB_Loaded(object sender, RoutedEventArgs e)
@@ -81,37 +81,28 @@ namespace TuningStudio.Pages
 
         private void NewModelCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(NewModelCB.SelectedItem != null)
-            {
-                var bodiesOfModel = from body in MainWindow.db.Body
-                                    join model in MainWindow.db.Model on body.ModelID equals model.ID
-                                    where model.NameOfModel == NewModelCB.SelectedItem.ToString()
-                                    select body.NameOfBody;
-                NewBodyCB.IsEnabled = true;
-                NewBodyCB.ItemsSource = bodiesOfModel.ToList();
-            }
-            else
-            {
-                NewBodyCB.IsEnabled = false;
-            }
+            NewBodyCB.IsEnabled = true;
+
+            var selectedModel = NewModelCB.SelectedItem as Model;
+            var bodiesOfModel = from body in MainWindow.db.Body
+                                join model in MainWindow.db.Model on body.ModelID equals model.ID
+                                where model.NameOfModel == selectedModel.NameOfModel
+                                select body;
+            NewBodyCB.ItemsSource = bodiesOfModel.ToList();
+            NewBodyCB.DisplayMemberPath = "NameOfBody";
         }
 
         private void NewBrandCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(NewBrandCB.SelectedItem != null)
-            {
-                var modelsOfBrand = from model in MainWindow.db.Model
-                                    join brand in MainWindow.db.Brand on model.BrandID equals brand.ID
-                                    where brand.NameOfBrand == NewBrandCB.SelectedItem.ToString()
-                                    select model.NameOfModel;
+            NewModelCB.IsEnabled = true;
 
-                NewModelCB.IsEnabled = true;
-                NewModelCB.ItemsSource = modelsOfBrand.ToList();
-            }
-            else
-            {
-                NewModelCB.IsEnabled = false;
-            }
+            var selectedBrand = NewBrandCB.SelectedItem as Brand;
+            var modelsOfBrand = from model in MainWindow.db.Model
+                                join brand in MainWindow.db.Brand on model.BrandID equals brand.ID
+                                where brand.NameOfBrand == selectedBrand.NameOfBrand
+                                select model;
+            NewModelCB.ItemsSource = modelsOfBrand.ToList();
+            NewModelCB.DisplayMemberPath = "NameOfModel";
         }
 
         private void AddVehicleBtn_Click(object sender, RoutedEventArgs e)

@@ -40,7 +40,7 @@
         </StackPanel>
         <Button x:Name="AddOrderButton" Grid.Column="0" Grid.Row="3" Content="Add order" Style="{DynamicResource NewButtonStyle}" Margin="58,55,1,55" Click="AddOrderButton_Click"/>
 
-        <ListView  x:Name="OrdersLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#fff" Loaded="OrdersLV_Loaded">
+        <ListView  x:Name="OrdersLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#c4c4c4" Loaded="OrdersLV_Loaded" Foreground="Black">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = ClientID}" Header="Client" Width="auto"/>
