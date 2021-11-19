@@ -130,5 +130,10 @@ namespace TuningStudio.Pages
                 this.NavigationService.GoBack();
             }
         }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
     }
 }

@@ -36,5 +36,10 @@ namespace TuningStudio.Pages
             MessageBox.Show("The changes is successfuly saved");
             this.NavigationService.GoBack();
         }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
     }
 }

@@ -37,8 +37,15 @@
                 <Button x:Name="AutopartsButton" VerticalAlignment="Center" Content="Autoparts" FontSize="15" Foreground="#fff" Grid.Row="4" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
             </Grid>
         </DockPanel>
-
-        <Button x:Name="AddAutopartButton" Grid.Column="0" Grid.Row="2" Content="Add autopart"  Width="100" Height="30" Loaded="AddAutopartButton_Loaded" Click="AddAutopartButton_Click"/>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="AddAutopartButton" Grid.Column="0" Content="Add AP"  Width="70" Height="25" Loaded="AddAutopartButton_Loaded" Click="AddAutopartButton_Click"/>
+            <Button x:Name="DeleteAPButton" Grid.Column="1" Content="Delete" Width="70" Height="25" Loaded="DeleteAPButton_Loaded" Click="DeleteAPButton_Click"/>
+        </Grid>            
+        
 
         <ListView  x:Name="AutopartsLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#c4c4c4" Loaded="AutopartsLV_Loaded" Foreground="Black">
             <ListView.View>

@@ -60,5 +60,10 @@ namespace TuningStudio.Pages
             NewTypeOfWorkCB.ItemsSource = MainWindow.db.TypeOfWork.ToList();
             NewTypeOfWorkCB.DisplayMemberPath = "NameOfWork";
         }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
     }
 }

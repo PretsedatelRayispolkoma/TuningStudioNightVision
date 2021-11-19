@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TuningStudio.DB;
 
 namespace TuningStudio.Pages
 {
@@ -76,6 +77,29 @@ namespace TuningStudio.Pages
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new MainPage());
+        }
+
+        private void DeleteAPButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.IDRole != 1)
+            {
+                DeleteAPButton.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void DeleteAPButton_Click(object sender, RoutedEventArgs e)
+        {
+            var apToDelete = AutopartsLV.SelectedItem as Autopart;
+            //MessageBox.Show(id.ToString());
+            try
+            {
+                MainWindow.db.Autopart.Remove(apToDelete);
+                MainWindow.db.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
         }
     }
 }

@@ -135,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddBrandPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +183,9 @@
   <ItemGroup>
     <Compile Include="Pages\AddAutopartPage.xaml.cs">
       <DependentUpon>AddAutopartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddBrandPage.xaml.cs">
+      <DependentUpon>AddBrandPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddOrderPage.xaml.cs">
       <DependentUpon>AddOrderPage.xaml</DependentUpon>

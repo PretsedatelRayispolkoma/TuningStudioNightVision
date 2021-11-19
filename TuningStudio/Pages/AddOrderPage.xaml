@@ -21,6 +21,13 @@
         </Grid.RowDefinitions>
 
         <Image Source="../Pictures/Logo.png" Margin="26,30,25,0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" />
+
+        <Button x:Name="CloseBtn" Grid.Column="4" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0" BorderBrush="Transparent" Margin="10" Click="CloseBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/TuningStudio;component/Pictures/Close.png"/>
+            </Button.Background>
+        </Button>
+
         <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>

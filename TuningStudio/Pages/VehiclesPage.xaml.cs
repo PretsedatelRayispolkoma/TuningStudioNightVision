@@ -93,8 +93,6 @@ namespace TuningStudio.Pages
 
         private void AddVehicleButton_Click(object sender, RoutedEventArgs e)
         {
-            //var id = VehiclesLV.SelectedItem;
-            //MessageBox.Show(id.ToString());
             this.NavigationService.Navigate(new AddVehiclepage());
         }
 
