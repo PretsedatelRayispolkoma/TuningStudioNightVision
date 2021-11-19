@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TuningStudio.DB;
 
 namespace TuningStudio.Pages
 {
@@ -55,12 +56,22 @@ namespace TuningStudio.Pages
                                    where vehicle.ClientID == MainWindow.IDClient
                                    select new
                                    {
+                                       vehicle.ID,
+                                       vehicle.ClientID,
                                        body.NameOfBody,
                                        vehicle.VINCode,
                                        vehicle.Year,
                                        color.NameOfColor
                                    };
+
                 VehiclesLV.ItemsSource = yourVehicles.ToList();
+                VehiclesLV.DisplayMemberPath = "ID";
+                VehiclesLV.DisplayMemberPath = "ClientID";
+                VehiclesLV.DisplayMemberPath = "VINCode";
+                VehiclesLV.DisplayMemberPath = "Year";
+                VehiclesLV.DisplayMemberPath = "NameOfColor";
+                VehiclesLV.DisplayMemberPath = "NameOFBody";
+
             }
             else if(MainWindow.IDRole == 1)
             {
@@ -69,6 +80,7 @@ namespace TuningStudio.Pages
                                       join body in MainWindow.db.Body on vehicle.BodyID equals body.ID
                                       select new
                                       {
+                                          vehicle.ID,
                                           vehicle.ClientID,
                                           body.NameOfBody,
                                           vehicle.VINCode,
@@ -81,6 +93,8 @@ namespace TuningStudio.Pages
 
         private void AddVehicleButton_Click(object sender, RoutedEventArgs e)
         {
+            //var id = VehiclesLV.SelectedItem;
+            //MessageBox.Show(id.ToString());
             this.NavigationService.Navigate(new AddVehiclepage());
         }
 

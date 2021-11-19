@@ -35,7 +35,7 @@ namespace TuningStudio.Pages
         private void NewWorkCB_Loaded(object sender, RoutedEventArgs e)
         {
             NewWorkCB.ItemsSource = MainWindow.db.TypeOfWork.ToList();
-            NewWorkCB.ItemsSource = "NameOfWork";
+            NewWorkCB.DisplayMemberPath = "NameOfWork";
         }
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)

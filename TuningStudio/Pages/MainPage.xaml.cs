@@ -61,6 +61,7 @@ namespace TuningStudio.Pages
                                  where veh.ClientID == MainWindow.IDClient
                                  select new
                                  {
+                                     veh.ClientID,
                                      veh.VINCode,
                                      tow.NameOfWork
                                  };

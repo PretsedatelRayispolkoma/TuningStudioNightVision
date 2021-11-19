@@ -10,19 +10,18 @@
 
     <Grid Background="#2A0B39">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="105*"/>
-            <ColumnDefinition Width="162*"/>
-            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="31*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="auto" MinHeight="281"/>
+            <RowDefinition Height="84*"/>
         </Grid.RowDefinitions>
 
-        <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="auto" Margin="32,0,31,0"/>
+        <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" Width="auto" VerticalAlignment="Center" MinWidth="50" MinHeight="30" Margin="10,-8,10,10"/>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="auto" Margin="0,35">
+        <DockPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" MinHeight="200" MaxHeight="200" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -31,14 +30,15 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="VehiclesButton" Content="Vehicles" FontSize="15" Foreground="#888888" Grid.Row="1" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="VehiclesButton_Click" VerticalAlignment="Top" />
-                <Button x:Name="ServicesButton" Content="Services" FontSize="15" Foreground="#fff" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
-                <Button x:Name="BrandsButton" Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click" />
-                <Button x:Name="OrdersButton" Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent"  VerticalAlignment="Top" Click="OrdersButton_Click" />
-                <Button x:Name="AutopartsButton" Content="Autoparts" FontSize="15" Foreground="#888888" Grid.Row="4" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
+                <Button x:Name="VehiclesButton" VerticalAlignment="Center" Content="Vehicles" FontSize="15" Foreground="#888888" Grid.Row="1" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="VehiclesButton_Click"/>
+                <Button x:Name="ServicesButton" VerticalAlignment="Center" Content="Services" FontSize="15" Foreground="#fff" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
+                <Button x:Name="BrandsButton" VerticalAlignment="Center" Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click"/>
+                <Button x:Name="OrdersButton" VerticalAlignment="Center" Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="OrdersButton_Click" />
+                <Button x:Name="AutopartsButton" VerticalAlignment="Center" Content="Autoparts" FontSize="15" Foreground="#888888" Grid.Row="4" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
             </Grid>
-        </StackPanel>
-        <Button x:Name="AddServiceButton" Grid.Column="0" Grid.Row="2" Content="Add new Service" Background="#C4C4C4" Style="{DynamicResource NewButtonStyle}" Loaded="AddServiceButton_Loaded" Margin="56,55,57,55" Click="AddServiceButton_Click"/>
+        </DockPanel>
+
+        <Button x:Name="AddServiceButton" Grid.Column="0" Grid.Row="2" Content="Add new Service" Background="#C4C4C4" Loaded="AddServiceButton_Loaded" Width="100" Height="30" Click="AddServiceButton_Click"/>
 
         <ListView x:Name="ServicesLV" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" Background="#C4C4C4" Loaded="ServicesLV_Loaded">
             <ListView.View>

@@ -22,9 +22,12 @@
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <Button x:Name="CloseBtn" Grid.Column="4" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Margin="10" Click="CloseBtn_Click"/>
-        <Image Source="../Pictures/Close.png" Grid.Column="4" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" Margin="10"/>
+        
+        <Button x:Name="CloseBtn" Grid.Column="4" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0" BorderBrush="Transparent" Margin="10" Click="CloseBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/TuningStudio;component/Pictures/Close.png"/>
+            </Button.Background>
+        </Button>
 
         <Image Source="../Pictures/Logo.png" Grid.Column="0" Grid.Row="0" Margin="10" VerticalAlignment="Top"/>
 

@@ -57,5 +57,25 @@ namespace TuningStudio.Pages
         {
             this.NavigationService.Refresh();
         }
+
+        private void VehiclesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new VehiclesPage());
+        }
+
+        private void BrandsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new BrandsPage());
+        }
+
+        private void ServicesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ServicesPage());
+        }
+
+        private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new MainPage());
+        }
     }
 }
