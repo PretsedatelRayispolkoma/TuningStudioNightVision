@@ -83,5 +83,10 @@ namespace TuningStudio.Pages
         {
             this.NavigationService.Navigate(new AddVehiclepage());
         }
+
+        private void AutopartsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AutopartsPage());
+        }
     }
 }

@@ -57,6 +57,11 @@ namespace TuningStudio.Pages
                 AddBrandButton.Visibility = Visibility.Visible;
             }
         }
+
+        private void AutopartsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AutopartsPage());
+        }
     }
 }
 

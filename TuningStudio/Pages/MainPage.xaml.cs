@@ -80,5 +80,10 @@ namespace TuningStudio.Pages
                 OrdersLV.ItemsSource = allOrders.ToList();
             }
         }
+
+        private void AutopartsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AutopartsPage());
+        }
     }
 }

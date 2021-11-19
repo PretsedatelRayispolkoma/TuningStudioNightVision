@@ -1,4 +1,4 @@
-﻿<Page x:Class="TuningStudio.Pages.MainPage"
+﻿<Page x:Class="TuningStudio.Pages.AutopartsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TuningStudio.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage">
+      Title="AutopartsPage">
 
     <Grid Background="#2A0B39">
         <Grid.ColumnDefinitions>
@@ -24,7 +24,7 @@
 
         <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="104" Margin="34,0,33,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="100" Margin="10,53,10,54" Grid.ColumnSpan="2">
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="auto" Margin="10,53,10,54" Grid.ColumnSpan="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -36,19 +36,19 @@
                 <Button x:Name="VehiclesButton" Content="Vehicles" FontSize="15" Foreground="#888888" Grid.Row="1" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="VehiclesButton_Click" />
                 <Button x:Name="ServicesButton" Content="Services" FontSize="15" Foreground="#888888" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
                 <Button x:Name="BrandsButton" Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click" />
-                <Button x:Name="OrdersButton" Content="Orders" FontSize="15" Foreground="#fff" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="OrdersButton_Click" />
-                <Button x:Name="AutopartsButton" Content="Autoparts" FontSize="15" Foreground="#888888" Grid.Row="4" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
+                <Button x:Name="OrdersButton" Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="OrdersButton_Click" />
+                <Button x:Name="AutopartsButton" Content="Autoparts" FontSize="15" Foreground="#fff" Grid.Row="4" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
             </Grid>
         </StackPanel>
-        <Button x:Name="AddOrderButton" Grid.Column="0" Grid.Row="3" Content="Add order" Style="{DynamicResource NewButtonStyle}" Margin="58,55,1,55" Click="AddOrderButton_Click"/>
+        <Button x:Name="AddAutopartButton" Grid.Column="0" Grid.Row="3" Content="Add autopart" Style="{DynamicResource NewButtonStyle}" Margin="58,55,1,55" Loaded="AddAutopartButton_Loaded" Click="AddAutopartButton_Click"/>
 
-        <ListView  x:Name="OrdersLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#c4c4c4" Loaded="OrdersLV_Loaded" Foreground="Black">
+        <ListView  x:Name="AutopartsLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#c4c4c4" Loaded="AutopartsLV_Loaded" Foreground="Black">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = ClientID}" Header="Client" Width="auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = VINCode}" Header="VIN-Code" Width="auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfWork}" Header="Works"  Width="auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Price}" Header="Price"  Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Unit}" Header="Unit" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfManufacturer}" Header="Manufacturer"  Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = GuaranteeMonth}" Header="Guarantee" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfWork}" Header="Work" Width="auto"/>
                 </GridView>
             </ListView.View>
         </ListView>

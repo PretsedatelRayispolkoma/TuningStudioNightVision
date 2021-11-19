@@ -16,15 +16,16 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="104" Margin="32,0,31,0"/>
+        <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="auto" Margin="32,0,31,0"/>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="80" Margin="0,35">
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="auto" Margin="0,35">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -34,6 +35,7 @@
                 <Button x:Name="ServicesButton" Content="Services" FontSize="15" Foreground="#fff" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
                 <Button x:Name="BrandsButton" Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click" />
                 <Button x:Name="OrdersButton" Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent"  VerticalAlignment="Top" Click="OrdersButton_Click" />
+                <Button x:Name="AutopartsButton" Content="Autoparts" FontSize="15" Foreground="#888888" Grid.Row="4" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
             </Grid>
         </StackPanel>
         <Button x:Name="AddServiceButton" Grid.Column="0" Grid.Row="2" Content="Add new Service" Background="#C4C4C4" Style="{DynamicResource NewButtonStyle}" Loaded="AddServiceButton_Loaded" Margin="56,55,57,55" Click="AddServiceButton_Click"/>
