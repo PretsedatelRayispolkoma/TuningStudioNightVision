@@ -26,19 +26,10 @@ namespace TuningStudio.Pages
             InitializeComponent();
         }
 
+
         private void AutopartsLV_Loaded(object sender, RoutedEventArgs e)
         {
-            var currentAutoParts = from autop in MainWindow.db.Autopart
-                                   join manuf in MainWindow.db.Manufacturer on autop.ManufacturerID equals manuf.ID
-                                   join tow in MainWindow.db.TypeOfWork on autop.TypeOfWorkID equals tow.ID
-                                   select new
-                                   {
-                                       autop.Unit,
-                                       autop.GuaranteeMonth,
-                                       manuf.NameOfManufacturer,
-                                       tow.NameOfWork
-                                   };
-            AutopartsLV.ItemsSource = currentAutoParts.ToList();
+            AutopartsLV.ItemsSource = MainWindow.db.Autopart.ToList();
         }
 
         private void AddAutopartButton_Loaded(object sender, RoutedEventArgs e)
@@ -90,7 +81,14 @@ namespace TuningStudio.Pages
         private void DeleteAPButton_Click(object sender, RoutedEventArgs e)
         {
             var apToDelete = AutopartsLV.SelectedItem as Autopart;
-            //MessageBox.Show(id.ToString());
+            if(apToDelete == null)
+            {
+                return;
+            }
+
+            MessageBox.Show(apToDelete.ID.ToString());
+
+
             try
             {
                 MainWindow.db.Autopart.Remove(apToDelete);

@@ -30,11 +30,19 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="VehiclesButton" VerticalAlignment="Center" Content="Vehicles" FontSize="15" Foreground="#888888" Grid.Row="1" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="VehiclesButton_Click" />
-                <Button x:Name="ServicesButton" VerticalAlignment="Center" Content="Services" FontSize="15" Foreground="#888888" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
-                <Button x:Name="BrandsButton" VerticalAlignment="Center" Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click" />
-                <Button x:Name="OrdersButton" VerticalAlignment="Center" Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="OrdersButton_Click" />
-                <Button x:Name="AutopartsButton" VerticalAlignment="Center" Content="Autoparts" FontSize="15" Foreground="#fff" Grid.Row="4" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
+                <Button x:Name="VehiclesButton" VerticalAlignment="Center"
+                        Content="Vehicles" FontSize="15" Foreground="#888888" Grid.Row="1" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="VehiclesButton_Click" />
+                <Button x:Name="ServicesButton" VerticalAlignment="Center" 
+                        Content="Services" FontSize="15" Foreground="#888888" Grid.Row="2" Width="120" Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="ServicesButton_Click" />
+                <Button x:Name="BrandsButton" VerticalAlignment="Center" 
+                        Content="Brands" FontSize="15" Foreground="#888888" Grid.Row="3" Width="120" 
+                        Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="BrandsButton_Click" />
+                <Button x:Name="OrdersButton" VerticalAlignment="Center" 
+                        Content="Orders" FontSize="15" Foreground="#888888" Grid.Row="0" Width="120" 
+                        Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="OrdersButton_Click" />
+                <Button x:Name="AutopartsButton" VerticalAlignment="Center" 
+                        Content="Autoparts" FontSize="15" Foreground="#fff" Grid.Row="4" Width="120" 
+                        Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
             </Grid>
         </DockPanel>
         <Grid Grid.Row="2" Grid.Column="0">
@@ -47,15 +55,19 @@
         </Grid>
 
 
-        <ListView  x:Name="AutopartsLV" Grid.RowSpan="2" Grid.Column="1" Background="#c4c4c4" Loaded="AutopartsLV_Loaded" Foreground="Black" Grid.Row="1">
+        <ListView  
+            x:Name="AutopartsLV"  
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            Grid.RowSpan="2" Grid.Column="1" Background="#c4c4c4" Loaded="AutopartsLV_Loaded" Foreground="Black" Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="auto">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -66,11 +78,11 @@
                         <Image Grid.Row="0" Source="../Pictures/Item.png" Width="100" Height="100" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Path = Unit}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" 
                                    FontWeight="Bold" FontSize="15"/>
-                        <TextBlock Text="{Binding Path = NameOfManufacturer}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"
+                        <TextBlock Text="{Binding Path = Manufacturer.NameOfManufacturer}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"
                                    FontSize="10"/>
-                        <TextBlock Text="{Binding Path = GuaranteeMonth, StringFormat=() Guarantee: (0) months}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"
+                        <TextBlock Text="{Binding Path = GuaranteeMonth, StringFormat = Guarantee: 0 months}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"
                                    FontSize="10"/>
-                        <TextBlock Text="{Binding Path = NameOfWork}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        <TextBlock Text="{Binding Path = TypeOfWork.NameOfWork}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" 
                                    FontSize="10"/>
                     </Grid>
                 </DataTemplate>
