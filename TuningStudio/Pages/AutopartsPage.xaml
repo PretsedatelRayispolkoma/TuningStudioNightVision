@@ -44,18 +44,45 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="AddAutopartButton" Grid.Column="0" Content="Add AP"  Width="70" Height="25" Loaded="AddAutopartButton_Loaded" Click="AddAutopartButton_Click"/>
             <Button x:Name="DeleteAPButton" Grid.Column="1" Content="Delete" Width="70" Height="25" Loaded="DeleteAPButton_Loaded" Click="DeleteAPButton_Click"/>
-        </Grid>            
-        
+        </Grid>
 
-        <ListView  x:Name="AutopartsLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#c4c4c4" Loaded="AutopartsLV_Loaded" Foreground="Black">
-            <ListView.View>
+
+        <ListView  x:Name="AutopartsLV" Grid.RowSpan="2" Grid.Column="1" Background="#c4c4c4" Loaded="AutopartsLV_Loaded" Foreground="Black" Grid.Row="1">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="../Pictures/Item.png" Width="100" Height="100" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Path = Unit}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" 
+                                   FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="{Binding Path = NameOfManufacturer}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   FontSize="10"/>
+                        <TextBlock Text="{Binding Path = GuaranteeMonth, StringFormat=() Guarantee: (0) months}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   FontSize="10"/>
+                        <TextBlock Text="{Binding Path = NameOfWork}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                   FontSize="10"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Unit}" Header="Unit" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfManufacturer}" Header="Manufacturer"  Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = GuaranteeMonth}" Header="Guarantee" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfWork}" Header="Work" Width="auto"/>
                 </GridView>
-            </ListView.View>
+            </ListView.View>-->
         </ListView>
     </Grid>
 </Page>

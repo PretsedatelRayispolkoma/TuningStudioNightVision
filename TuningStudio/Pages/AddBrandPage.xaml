@@ -25,7 +25,24 @@
 
         <Image Source="../Pictures/Logo.png"  Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,0,8,0" Height="75" />
 
+        <Button x:Name="CloseBtn" Grid.Column="2" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0" BorderBrush="Transparent" Margin="10" Click="CloseBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/TuningStudio;component/Pictures/Close.png"/>
+            </Button.Background>
+        </Button>
+
         <Label Content="New brand" Grid.Row="1" Grid.Column="1" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
         <TextBox x:Name="NewBrandTB" Grid.Row="2" Grid.Column="1" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <Label Content="Model" Grid.Row="1" Grid.Column="2" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
+        <TextBox x:Name="NewModelTB" Grid.Row="2" Grid.Column="2" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <Label Content="Body" Grid.Row="2" Grid.Column="1" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
+        <TextBox x:Name="NewBodyTB" Grid.Row="3" Grid.Column="1" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <Label Content="Country" Grid.Row="2" Grid.Column="2" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
+        <ComboBox x:Name="CountryCB" Grid.Row="3" Grid.Column="2" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Loaded="CountryCB_Loaded"/>
+
+        <Button x:Name="AddBrandBtn" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Add" Click="AddBrandBtn_Click"/>
     </Grid>
 </Page>
