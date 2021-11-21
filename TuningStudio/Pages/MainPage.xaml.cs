@@ -66,7 +66,10 @@ namespace TuningStudio.Pages
                 //                     tow.NameOfWork
                 //                 };
                 //OrdersLV.ItemsSource = yourOrders.ToList();
-                //OrdersLV.ItemsSource = MainWindow.db.Order.Where(o => o.VehicleID == )
+
+                //var currentVehicles = MainWindow.db.Vehicle.Where(v => v.Client. == MainWindow.IDClient);
+
+                OrdersLV.ItemsSource = MainWindow.db.Order.Where(o => o.Vehicle.ClientID == MainWindow.IDClient).ToList();
             }
             else if(MainWindow.IDRole == 1)
             {

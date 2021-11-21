@@ -99,5 +99,10 @@ namespace TuningStudio.Pages
                 MessageBox.Show("Error");
             }
         }
+
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AutorizationPage());
+        }
     }
 }
