@@ -50,44 +50,46 @@ namespace TuningStudio.Pages
         {
             if(MainWindow.IDRole == 2)
             {
-                var yourVehicles = from color in MainWindow.db.Color
-                                   join vehicle in MainWindow.db.Vehicle on color.ID equals vehicle.ColorID
-                                   join body in MainWindow.db.Body on vehicle.BodyID equals body.ID
-                                   where vehicle.ClientID == MainWindow.IDClient
-                                   select new
-                                   {
-                                       vehicle.ID,
-                                       vehicle.ClientID,
-                                       body.NameOfBody,
-                                       vehicle.VINCode,
-                                       vehicle.Year,
-                                       color.NameOfColor
-                                   };
+                //var yourVehicles = from color in MainWindow.db.Color
+                //                   join vehicle in MainWindow.db.Vehicle on color.ID equals vehicle.ColorID
+                //                   join body in MainWindow.db.Body on vehicle.BodyID equals body.ID
+                //                   where vehicle.ClientID == MainWindow.IDClient
+                //                   select new
+                //                   {
+                //                       vehicle.ID,
+                //                       vehicle.ClientID,
+                //                       body.NameOfBody,
+                //                       vehicle.VINCode,
+                //                       vehicle.Year,
+                //                       color.NameOfColor
+                //                   };
 
-                VehiclesLV.ItemsSource = yourVehicles.ToList();
-                VehiclesLV.DisplayMemberPath = "ID";
-                VehiclesLV.DisplayMemberPath = "ClientID";
-                VehiclesLV.DisplayMemberPath = "VINCode";
-                VehiclesLV.DisplayMemberPath = "Year";
-                VehiclesLV.DisplayMemberPath = "NameOfColor";
-                VehiclesLV.DisplayMemberPath = "NameOFBody";
+                //VehiclesLV.ItemsSource = yourVehicles.ToList();
+                //VehiclesLV.DisplayMemberPath = "ID";
+                //VehiclesLV.DisplayMemberPath = "ClientID";
+                //VehiclesLV.DisplayMemberPath = "VINCode";
+                //VehiclesLV.DisplayMemberPath = "Year";
+                //VehiclesLV.DisplayMemberPath = "NameOfColor";
+                //VehiclesLV.DisplayMemberPath = "NameOFBody";
+                VehiclesLV.ItemsSource = MainWindow.db.Vehicle.Where(v => v.ClientID == MainWindow.IDClient).ToList();
 
             }
             else if(MainWindow.IDRole == 1)
             {
-                var currentVehicles = from color in MainWindow.db.Color
-                                      join vehicle in MainWindow.db.Vehicle on color.ID equals vehicle.ColorID
-                                      join body in MainWindow.db.Body on vehicle.BodyID equals body.ID
-                                      select new
-                                      {
-                                          vehicle.ID,
-                                          vehicle.ClientID,
-                                          body.NameOfBody,
-                                          vehicle.VINCode,
-                                          vehicle.Year,
-                                          color.NameOfColor
-                                      };
-                VehiclesLV.ItemsSource = currentVehicles.ToList();
+                //var currentVehicles = from color in MainWindow.db.Color
+                //                      join vehicle in MainWindow.db.Vehicle on color.ID equals vehicle.ColorID
+                //                      join body in MainWindow.db.Body on vehicle.BodyID equals body.ID
+                //                      select new
+                //                      {
+                //                          vehicle.ID,
+                //                          vehicle.ClientID,
+                //                          body.NameOfBody,
+                //                          vehicle.VINCode,
+                //                          vehicle.Year,
+                //                          color.NameOfColor
+                //                      };
+                //VehiclesLV.ItemsSource = currentVehicles.ToList();
+                VehiclesLV.ItemsSource = MainWindow.db.Vehicle.ToList();
             }
         }
 

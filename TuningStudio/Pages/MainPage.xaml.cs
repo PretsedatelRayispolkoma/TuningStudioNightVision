@@ -55,30 +55,32 @@ namespace TuningStudio.Pages
         {
             if (MainWindow.IDRole == 2)
             {
-                var yourOrders = from veh in MainWindow.db.Vehicle
-                                 join ord in MainWindow.db.Order on veh.ID equals ord.VehicleID
-                                 join tow in MainWindow.db.TypeOfWork on ord.TypeOfWorkID equals tow.ID
-                                 where veh.ClientID == MainWindow.IDClient
-                                 select new
-                                 {
-                                     veh.ClientID,
-                                     veh.VINCode,
-                                     tow.NameOfWork
-                                 };
-                OrdersLV.ItemsSource = yourOrders.ToList();
+                //var yourOrders = from veh in MainWindow.db.Vehicle
+                //                 join ord in MainWindow.db.Order on veh.ID equals ord.VehicleID
+                //                 join tow in MainWindow.db.TypeOfWork on ord.TypeOfWorkID equals tow.ID
+                //                 where veh.ClientID == MainWindow.IDClient
+                //                 select new
+                //                 {
+                //                     veh.ClientID,
+                //                     veh.VINCode,
+                //                     tow.NameOfWork
+                //                 };
+                //OrdersLV.ItemsSource = yourOrders.ToList();
+                //OrdersLV.ItemsSource = MainWindow.db.Order.Where(o => o.VehicleID == )
             }
             else if(MainWindow.IDRole == 1)
             {
-                var allOrders = from veh in MainWindow.db.Vehicle
-                                join ord in MainWindow.db.Order on veh.ID equals ord.VehicleID
-                                join tow in MainWindow.db.TypeOfWork on ord.TypeOfWorkID equals tow.ID
-                                select new
-                                {
-                                    veh.ClientID,
-                                    veh.VINCode,
-                                    tow.NameOfWork
-                                };
-                OrdersLV.ItemsSource = allOrders.ToList();
+                //var allOrders = from veh in MainWindow.db.Vehicle
+                //                join ord in MainWindow.db.Order on veh.ID equals ord.VehicleID
+                //                join tow in MainWindow.db.TypeOfWork on ord.TypeOfWorkID equals tow.ID
+                //                select new
+                //                {
+                //                    veh.ClientID,
+                //                    veh.VINCode,
+                //                    tow.NameOfWork
+                //                };
+                //OrdersLV.ItemsSource = allOrders.ToList();
+                OrdersLV.ItemsSource = MainWindow.db.Order.ToList();
             }
         }
 

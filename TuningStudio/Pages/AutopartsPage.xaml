@@ -14,14 +14,14 @@
             <ColumnDefinition Width="31*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85*"/>
+            <RowDefinition Height="85*" MaxHeight="100"/>
             <RowDefinition Height="auto" MinHeight="281"/>
             <RowDefinition Height="84*"/>
         </Grid.RowDefinitions>
 
         <Image Source="../Pictures/Logo.png" Grid.Row="0" Grid.Column="0" Width="auto" MinWidth="50" MinHeight="30" VerticalAlignment="Center" Margin="10,-8,10,10"/>
-
-        <DockPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="200" MaxHeight="200">
+        
+        <DockPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="200" MaxHeight="200" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -45,6 +45,7 @@
                         Height="20" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Click="AutopartsButton_Click"/>
             </Grid>
         </DockPanel>
+        
         <Grid Grid.Row="2" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -54,20 +55,23 @@
             <Button x:Name="DeleteAPButton" Grid.Column="1" Content="Delete" Width="70" Height="25" Loaded="DeleteAPButton_Loaded" Click="DeleteAPButton_Click"/>
         </Grid>
 
+        <Grid Background="#333333" Grid.Row="0" Grid.Column="1">
+
+        </Grid>
 
         <ListView  
             x:Name="AutopartsLV"  
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Visible"
-            Grid.RowSpan="2" Grid.Column="1" Background="#c4c4c4" Loaded="AutopartsLV_Loaded" Foreground="Black" Grid.Row="1">
+            Grid.RowSpan="2" Grid.Column="1" Background="#333333"  Loaded="AutopartsLV_Loaded" Foreground="Black" Grid.Row="1" BorderThickness="0" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20"/>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Margin="0, 0, 30, 30">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -76,14 +80,14 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Image Grid.Row="0" Source="../Pictures/Item.png" Width="100" Height="100" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding Path = Unit}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" 
-                                   FontWeight="Bold" FontSize="15"/>
-                        <TextBlock Text="{Binding Path = Manufacturer.NameOfManufacturer}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                   FontSize="10"/>
-                        <TextBlock Text="{Binding Path = GuaranteeMonth, StringFormat = Guarantee: 0 months}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                   FontSize="10"/>
-                        <TextBlock Text="{Binding Path = TypeOfWork.NameOfWork}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                                   FontSize="10"/>
+                        <TextBlock x:Name="UnitTB" Text="{Binding Path = Unit}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150"  TextWrapping="Wrap"
+                                   FontWeight="Bold" FontSize="15" Margin="10" Foreground="#fff"/>
+                        <TextBlock Text="{Binding Path = Manufacturer.NameOfManufacturer}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                        <TextBlock Text="{Binding Path = GuaranteeMonth, StringFormat = Guarantee: 0 months}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                        <TextBlock Text="{Binding Path = TypeOfWork.NameOfWork}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -14,7 +14,7 @@
             <ColumnDefinition Width="31*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85*"/>
+            <RowDefinition Height="85*" MaxHeight="100"/>
             <RowDefinition Height="auto" MinHeight="281"/>
             <RowDefinition Height="84*"/>
         </Grid.RowDefinitions>
@@ -40,14 +40,43 @@
 
         <Button x:Name="AddOrderButton" Grid.Column="0" Grid.Row="3" Content="Add order"  Width="100" Height="30" Click="AddOrderButton_Click"/>
 
-        <ListView  x:Name="OrdersLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#c4c4c4" Loaded="OrdersLV_Loaded" Foreground="Black">
-            <ListView.View>
+        <Grid Grid.Row="0" Grid.Column="1" Background="#333333">
+
+        </Grid>
+
+        <ListView x:Name="OrdersLV" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            Grid.RowSpan="2" Grid.Column="1" Background="#333333" Loaded="OrdersLV_Loaded" Foreground="Black" Grid.Row="1" BorderThickness="0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="../Pictures/Item.png" Width="70" Height="70" HorizontalAlignment="Center" Margin="20"/>
+                        <TextBlock Text="{Binding Path = Vehicle.Client.FirstName}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontWeight="Bold" FontSize="10" Margin="10" Foreground="#c4c4c4" />
+                        <TextBlock Text="{Binding Path = Vehicle.Client.LastName}" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontWeight="Bold" FontSize="10" Margin="10" Foreground="#c4c4c4" />
+                        <TextBlock Text="{Binding Path = Vehicle.VINCode}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontSize="8" Margin="10" Foreground="#fff"/>
+                        <TextBlock Text="{Binding Path = TypeOfWork.NameOfWork}" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = ClientID}" Header="Client" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = VINCode}" Header="VIN-Code" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfWork}" Header="Works"  Width="auto"/>
                 </GridView>
             </ListView.View>
-        </ListView>
+        </ListView>-->
     </Grid>
 </Page>

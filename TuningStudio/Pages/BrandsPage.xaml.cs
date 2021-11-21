@@ -65,18 +65,7 @@ namespace TuningStudio.Pages
 
         private void BrandsLV_Loaded(object sender, RoutedEventArgs e)
         {
-            var currentCars = from country in MainWindow.db.Country
-                              join brand in MainWindow.db.Brand on country.ID equals brand.CountryID
-                              join model in MainWindow.db.Model on brand.ID equals model.BrandID
-                              join body in MainWindow.db.Body on model.ID equals body.ModelID
-                              select new
-                              {
-                                  country.NameOfCountry,
-                                  brand.NameOfBrand,
-                                  model.NameOfModel,
-                                  body.NameOfBody
-                              };
-            BrandsLV.ItemsSource = currentCars.ToList();
+            BrandsLV.ItemsSource = MainWindow.db.Body.ToList();
         }
 
         private void AddBrandButton_Loaded(object sender, RoutedEventArgs e)

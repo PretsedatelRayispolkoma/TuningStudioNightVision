@@ -14,7 +14,7 @@
             <ColumnDefinition Width="31*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85*"/>
+            <RowDefinition Height="85*" MaxHeight="100"/>
             <RowDefinition Height="auto" MinHeight="281"/>
             <RowDefinition Height="84*"/>
         </Grid.RowDefinitions>
@@ -40,17 +40,56 @@
 
         <Button x:Name="AddVehicleButton" Grid.Column="0" Grid.Row="3" Content="Add Vehicle" Background="#C4C4C4"  Width="100" Height="30" Click="AddVehicleButton_Click"/>
 
-        <ListView x:Name="VehiclesLV" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#fff" Loaded="VehiclesLV_Loaded">
-            <ListView.View>
+        <Grid Grid.Row="0" Grid.Column="1" Background="#333333">
+            
+        </Grid>
+        
+        <ListView x:Name="VehiclesLV" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            Grid.RowSpan="2" Grid.Column="1" Background="#333333"  Loaded="VehiclesLV_Loaded" Foreground="Black" Grid.Row="1" BorderThickness="0" >
+            <!--<ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="../Pictures/Item.png" Width="60" Height="60" HorizontalAlignment="Center" Margin="10"/>
+                        <TextBlock Text="{Binding Path = Client.FirstName}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontWeight="Bold" FontSize="10" Margin="10" Foreground="#c4c4c4" />
+                        <TextBlock Text="{Binding Path = Client.LastName}" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontWeight="Bold" FontSize="10" Margin="10" Foreground="#c4c4c4" />
+                        <TextBlock Text="{Binding Path = VINCode}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="8" Margin="10" Foreground="#fff"/>
+                        <TextBlock Text="{Binding Path = Year}" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                        <TextBlock Text="{Binding Path = Color.NameOfColor}" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                        <TextBlock Text="{Binding Path = Body.NameOfBody}" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = ID}" Header="CarID" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = ID}" Header="CarID" Width="auto" />
                     <GridViewColumn DisplayMemberBinding="{Binding Path = ClientID}" Header="ID of client" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = VINCode}" Header="VIN-Code" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Year}" Header="Year" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfColor}" Header="Color" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfBody}" Header="VIN-Code" Width="auto"/>
                 </GridView>
-            </ListView.View>
+            </ListView.View>-->
         </ListView>
     </Grid>
 </Page>

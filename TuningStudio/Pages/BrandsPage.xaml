@@ -14,7 +14,7 @@
             <ColumnDefinition Width="31*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85*"/>
+            <RowDefinition Height="85*" MaxHeight="100"/>
             <RowDefinition Height="auto" MinHeight="281"/>
             <RowDefinition Height="84*"/>
         </Grid.RowDefinitions>
@@ -40,15 +40,48 @@
 
         <Button x:Name="AddBrandButton" Grid.Column="0" Grid.Row="2" Content="Add new Brand" Background="#C4C4C4"  Width="100" Height="30" Loaded="AddBrandButton_Loaded" Click="AddBrandButton_Click"/>
 
-        <ListView x:Name="BrandsLV" Grid.RowSpan="3" Grid.Column="1" Background="#C4C4C4" Loaded="BrandsLV_Loaded">
-            <ListView.View>
+        <Grid Background="#333333" Grid.Row="0" Grid.Column="1">
+            
+        </Grid>
+        
+        <ListView x:Name="BrandsLV" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            Grid.RowSpan="2" Grid.Column="1" Background="#333333"  Loaded="BrandsLV_Loaded" Foreground="Black" Grid.Row="1" BorderThickness="0" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0, 0, 30, 30">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="../Pictures/Item.png" Width="100" Height="100" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Path = Model.Brand.NameOfBrand}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontWeight="Bold" FontSize="15" Margin="10" Foreground="#fff" />
+                        <TextBlock Text="{Binding Path = Model.NameOfModel}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                        <TextBlock Text="{Binding Path = NameOfBody}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                        <TextBlock Text="{Binding Path = Model.Brand.Country.NameOfCountry}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfBrand}" Header="Brand" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfModel}" Header="Model" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfBody}" Header="Body" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = NameOfCountry}" Header="Сountry" Width="auto"/>
                 </GridView>
-            </ListView.View>
+            </ListView.View>-->
         </ListView>
     </Grid>
 </Page>
