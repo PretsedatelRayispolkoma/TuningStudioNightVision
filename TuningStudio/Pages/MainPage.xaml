@@ -54,7 +54,8 @@
             </Grid.RowDefinitions>
             <Button x:Name="AddOrderButton" Grid.Column="0" Grid.Row="0" Content="Add order"  Width="80" Height="30" Click="AddOrderButton_Click"/>
             <Button x:Name="DeleteBtn" Grid.Column="1" Grid.Row="0" Content="Delete" Width="80" Height="30" Click="DeleteBtn_Click"/>
-            <Button x:Name="QuitBtn" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"  VerticalAlignment="Top"  HorizontalAlignment="Center" Content="Quit" Background="Transparent" Foreground="#888888" BorderThickness="0" Width="40" Height="20" Click="QuitBtn_Click"/>
+            <Button x:Name="UpdateBtn" Grid.Column="0" Grid.Row="1" Width="80" Height="30" VerticalAlignment="Top"  HorizontalAlignment="Center" Content="Update" Loaded="UpdateBtn_Loaded" Click="UpdateBtn_Click"/>
+            <Button x:Name="QuitBtn" Grid.Column="1" Grid.Row="1"  VerticalAlignment="Top"  HorizontalAlignment="Center" Content="Quit" Background="Transparent" Foreground="#888888" BorderThickness="0" Width="40" Height="20" Click="QuitBtn_Click"/>
         </Grid>
         
         <ListView x:Name="OrdersLV" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -69,6 +70,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0" Source="../Pictures/Item.png" Width="70" Height="70" HorizontalAlignment="Center" Margin="20"/>
                         <TextBlock Text="{Binding Path = Vehicle.Client.FirstName}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
@@ -78,6 +81,10 @@
                         <TextBlock Text="{Binding Path = Vehicle.VINCode}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
                                    FontSize="8" Margin="10" Foreground="#fff"/>
                         <TextBlock Text="{Binding Path = TypeOfWork.NameOfWork}" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontSize="10" Margin="10" Foreground="#c4c4c4"/>
+                        <TextBlock Text="{Binding Path = IsAccepted}" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
+                                   FontSize="8" Margin="10" Foreground="#fff"/>
+                        <TextBlock Text="{Binding Path = DateOfOrder}" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
                                    FontSize="10" Margin="10" Foreground="#c4c4c4"/>
                     </Grid>
                 </DataTemplate>

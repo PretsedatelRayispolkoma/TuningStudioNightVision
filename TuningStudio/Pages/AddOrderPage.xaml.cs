@@ -24,6 +24,7 @@ namespace TuningStudio.Pages
         public AddOrderPage()
         {
             InitializeComponent();
+            DateOfOrderDP.DisplayDateStart = DateTime.Now;
         }
 
         private void NewVehiclesCB_Loaded(object sender, RoutedEventArgs e)
@@ -48,6 +49,9 @@ namespace TuningStudio.Pages
                 Order order = new Order();
                 order.TypeOfWorkID = selectedType.ID;
                 order.VehicleID = selectedVehicle.ID;
+
+                order.DateOfOrder = DateOfOrderDP.SelectedDate;
+                order.IsAccepted = false;
                 MainWindow.db.Order.Add(order);
                 MainWindow.db.SaveChanges();
                 MessageBox.Show("Your order is successfully added");

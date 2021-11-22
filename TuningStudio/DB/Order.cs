@@ -16,7 +16,8 @@ namespace TuningStudio.DB
     {
         public int TypeOfWorkID { get; set; }
         public int VehicleID { get; set; }
-        public int Price { get; set; }
+        public Nullable<bool> IsAccepted { get; set; }
+        public Nullable<System.DateTime> DateOfOrder { get; set; }
     
         public virtual TypeOfWork TypeOfWork { get; set; }
         public virtual Vehicle Vehicle { get; set; }

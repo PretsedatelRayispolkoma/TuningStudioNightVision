@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\Администратор\Source\Repos\TuningStudioNightVision\TuningStudio\DB\DataBase.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\211925\Source\Repos\PretsedatelRayispolkoma\TuningStudioNightVision\TuningStudio\DB\DataBase.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

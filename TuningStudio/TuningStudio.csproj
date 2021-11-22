@@ -263,7 +263,6 @@
     <Resource Include="Pictures\Item.png" />
     <Resource Include="Pictures\Close.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="DB\DataBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -68,8 +68,8 @@ namespace TuningStudio.Pages
                 //OrdersLV.ItemsSource = yourOrders.ToList();
 
                 //var currentVehicles = MainWindow.db.Vehicle.Where(v => v.Client. == MainWindow.IDClient);
-
                 OrdersLV.ItemsSource = MainWindow.db.Order.Where(o => o.Vehicle.ClientID == MainWindow.IDClient).ToList();
+
             }
             else if(MainWindow.IDRole == 1)
             {
@@ -85,6 +85,7 @@ namespace TuningStudio.Pages
                 //OrdersLV.ItemsSource = allOrders.ToList();
                 OrdersLV.ItemsSource = MainWindow.db.Order.ToList();
             }
+            
         }
 
         private void AutopartsButton_Click(object sender, RoutedEventArgs e)
@@ -116,6 +117,18 @@ namespace TuningStudio.Pages
         private void QuitBtn_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AutorizationPage());
+        }
+
+        private void UpdateBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.IDRole != 1)
+            {
+                UpdateBtn.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

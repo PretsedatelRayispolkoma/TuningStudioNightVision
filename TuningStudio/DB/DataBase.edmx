@@ -89,7 +89,8 @@
           </Key>
           <Property Name="TypeOfWorkID" Type="int" Nullable="false" />
           <Property Name="VehicleID" Type="int" Nullable="false" />
-          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="IsAccepted" Type="bit" />
+          <Property Name="DateOfOrder" Type="datetime" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -457,7 +458,8 @@
           </Key>
           <Property Name="TypeOfWorkID" Type="Int32" Nullable="false" />
           <Property Name="VehicleID" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="IsAccepted" Type="Boolean" />
+          <Property Name="DateOfOrder" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TypeOfWork" Relationship="Self.FK_Order_TypeOfWork" FromRole="Order" ToRole="TypeOfWork" />
           <NavigationProperty Name="Vehicle" Relationship="Self.FK_Order_Vehicle" FromRole="Order" ToRole="Vehicle" />
         </EntityType>
@@ -825,7 +827,8 @@
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="TypeOfWorkID" ColumnName="TypeOfWorkID" />
                 <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+                <ScalarProperty Name="DateOfOrder" ColumnName="DateOfOrder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
