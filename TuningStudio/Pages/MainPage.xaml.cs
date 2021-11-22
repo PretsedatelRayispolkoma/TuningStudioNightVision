@@ -91,5 +91,31 @@ namespace TuningStudio.Pages
         {
             this.NavigationService.Navigate(new AutopartsPage());
         }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var orderToDelete = OrdersLV.SelectedItem as Order;
+
+            if(orderToDelete == null)
+            {
+                return;
+            }
+            
+            try
+            {
+                MainWindow.db.Order.Remove(orderToDelete);
+                MainWindow.db.SaveChanges();
+                this.NavigationService.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AutorizationPage());
+        }
     }
 }

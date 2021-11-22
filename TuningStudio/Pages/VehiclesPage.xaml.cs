@@ -102,5 +102,32 @@ namespace TuningStudio.Pages
         {
             this.NavigationService.Navigate(new AutopartsPage());
         }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var vehToDelete = VehiclesLV.SelectedItem as Vehicle;
+
+            if(vehToDelete == null)
+            {
+                return;
+            }
+
+            try
+            {
+                MainWindow.db.Vehicle.Remove(vehToDelete);
+                MainWindow.db.SaveChanges();
+                this.NavigationService.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+
+        }
+
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AutorizationPage());
+        }
     }
 }

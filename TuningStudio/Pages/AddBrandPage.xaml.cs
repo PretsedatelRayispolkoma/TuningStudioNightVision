@@ -28,7 +28,7 @@ namespace TuningStudio.Pages
 
         private void CountryCB_Loaded(object sender, RoutedEventArgs e)
         {
-            CountryCB.ItemsSource = MainWindow.db.Country;
+            CountryCB.ItemsSource = MainWindow.db.Country.ToList();
             CountryCB.DisplayMemberPath = "NameOfCountry";
         }
 

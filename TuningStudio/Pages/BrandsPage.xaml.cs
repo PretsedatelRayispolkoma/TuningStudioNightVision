@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TuningStudio.DB;
 
 namespace TuningStudio.Pages
 {
@@ -78,12 +79,41 @@ namespace TuningStudio.Pages
 
         private void AddBrandButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new AddVehiclepage());
+            this.NavigationService.Navigate(new AddBrandPage());
         }
 
         private void QuitBtn_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AutopartsPage());
+        }
+
+        private void DeleteBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.IDRole != 1)
+            {
+                DeleteBtn.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var brToDelete = BrandsLV.SelectedItem as Body;
+
+            if(brToDelete == null)
+            {
+                return;
+            }
+
+            try
+            {
+                MainWindow.db.Body.Remove(brToDelete);
+                MainWindow.db.SaveChanges();
+                this.NavigationService.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
         }
     }
 }

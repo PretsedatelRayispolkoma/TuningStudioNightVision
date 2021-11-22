@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TuningStudio.DB;
 
 namespace TuningStudio.Pages
 {
@@ -60,13 +61,7 @@ namespace TuningStudio.Pages
 
         private void ServicesLV_Loaded(object sender, RoutedEventArgs e)
         {
-            var allServices = from serv in MainWindow.db.TypeOfWork
-                              select new
-                              { 
-                                serv.NameOfWork,
-                                serv.Description
-                              };
-            ServicesLV.ItemsSource = allServices.ToList();
+            ServicesLV.ItemsSource = MainWindow.db.TypeOfWork.ToList();
         }
 
         private void AddServiceButton_Click(object sender, RoutedEventArgs e)
@@ -77,6 +72,40 @@ namespace TuningStudio.Pages
         private void AutopartsButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AutopartsPage());
+        }
+
+        private void DeleteBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.IDRole != 1)
+            {
+                DeleteBtn.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var servToDelete = ServicesLV.SelectedItem as TypeOfWork;
+
+            if(servToDelete == null)
+            {
+                return;
+            }
+
+            try
+            {
+                MainWindow.db.TypeOfWork.Remove(servToDelete);
+                MainWindow.db.SaveChanges();
+                this.NavigationService.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}");
+            }
+        }
+
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AutorizationPage());
         }
     }
 }

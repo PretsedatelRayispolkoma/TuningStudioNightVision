@@ -86,13 +86,13 @@ namespace TuningStudio.Pages
                 return;
             }
 
-            MessageBox.Show(apToDelete.ID.ToString());
-
+           // MessageBox.Show(apToDelete.ID.ToString());
 
             try
             {
                 MainWindow.db.Autopart.Remove(apToDelete);
                 MainWindow.db.SaveChanges();
+                this.NavigationService.Refresh();
             }
             catch
             {
@@ -103,6 +103,11 @@ namespace TuningStudio.Pages
         private void QuitBtn_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AutorizationPage());
+        }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

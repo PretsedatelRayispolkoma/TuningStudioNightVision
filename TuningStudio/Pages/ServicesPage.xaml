@@ -38,10 +38,23 @@
             </Grid>
         </DockPanel>
 
-        <Button x:Name="AddServiceButton" Grid.Column="0" Grid.Row="2" Content="Add new Service" Background="#C4C4C4" Loaded="AddServiceButton_Loaded" Width="100" Height="30" Click="AddServiceButton_Click"/>
-
+       
         <Grid Background="#333333" Grid.Row="0" Grid.Column="1"> 
             
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="AddServiceButton" Grid.Column="0" Grid.Row="0" Content="Add Service" Background="#C4C4C4" Loaded="AddServiceButton_Loaded" Width="80" Height="30" Click="AddServiceButton_Click"/>
+            <Button x:Name="DeleteBtn" Grid.Column="1" Grid.Row="0" Content="Delete" Background="#c4c4c4" Width="80" Height="30" Loaded="DeleteBtn_Loaded" Click="DeleteBtn_Click"/>
+            <Button x:Name="QuitBtn" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"  VerticalAlignment="Top"  HorizontalAlignment="Center" Content="Quit" Background="Transparent" Foreground="#888888" BorderThickness="0" Width="40" Height="20" Click="QuitBtn_Click"/>
         </Grid>
         
         <ListView x:Name="ServicesLV" Grid.ColumnSpan="2" Loaded="ServicesLV_Loaded"
