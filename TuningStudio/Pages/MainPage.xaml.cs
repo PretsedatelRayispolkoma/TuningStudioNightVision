@@ -48,7 +48,7 @@ namespace TuningStudio.Pages
 
         private void AddOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new AddOrderPage());
+            this.NavigationService.Navigate(new AddOrderPage(null));
         }
 
         private void OrdersLV_Loaded(object sender, RoutedEventArgs e)
@@ -129,6 +129,10 @@ namespace TuningStudio.Pages
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
+            var selectedOrder = OrdersLV.SelectedItem as Order;
+
+            this.NavigationService.Navigate(new AddOrderPage(selectedOrder));
+
         }
     }
 }

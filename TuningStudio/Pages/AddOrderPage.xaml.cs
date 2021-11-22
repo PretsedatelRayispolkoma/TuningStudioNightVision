@@ -21,6 +21,22 @@ namespace TuningStudio.Pages
     /// </summary>
     public partial class AddOrderPage : Page
     {
+        public AddOrderPage(Order editOrder)
+        {
+            InitializeComponent();
+            if (editOrder != null)
+            {
+                NewVehiclesCB.SelectedItem = editOrder.Vehicle;
+                NewVehiclesCB.IsEnabled = false;
+                NewTypeOfWorkCB.SelectedItem = editOrder.TypeOfWork;
+                NewTypeOfWorkCB.IsEnabled = false;
+                DateOfOrderDP.SelectedDate = editOrder.DateOfOrder;
+            }
+
+
+            DateOfOrderDP.DisplayDateStart = DateTime.Now;
+        }
+
         public AddOrderPage()
         {
             InitializeComponent();
@@ -68,6 +84,14 @@ namespace TuningStudio.Pages
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
+        }
+
+        private void StatusGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(MainWindow.IDRole != 1)
+            {
+                StatusGrid.Visibility = Visibility.Hidden;
+            }
         }
     }
 }
