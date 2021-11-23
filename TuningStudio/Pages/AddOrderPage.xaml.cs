@@ -79,7 +79,14 @@ namespace TuningStudio.Pages
                 order.IsAccepted = false;
 
                 MainWindow.db.Order.Add(order);
-                MainWindow.db.SaveChanges();
+                try
+                {
+                    MainWindow.db.SaveChanges();
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
                 MessageBox.Show("Your order is successfully added");
                 this.NavigationService.GoBack();
             }
