@@ -78,7 +78,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="../Pictures/Item.png" Width="60" Height="60" HorizontalAlignment="Center" Margin="10"/>
+                        <Image Grid.Column="0" Source="../Pictures/Vehicle.png" Width="60" Height="60" HorizontalAlignment="Center" Margin="10"/>
                         <TextBlock Text="{Binding Path = Client.FirstName}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"
                                    FontWeight="Bold" FontSize="10" Margin="10" Foreground="#c4c4c4" />
                         <TextBlock Text="{Binding Path = Client.LastName}" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" TextWrapping="Wrap"

@@ -21,5 +21,10 @@ namespace TuningStudio.DB
     
         public virtual TypeOfWork TypeOfWork { get; set; }
         public virtual Vehicle Vehicle { get; set; }
+
+        public string IsAcceptedView
+        {
+            get => (bool)(IsAccepted) ? "Accepted" : "In waiting";
+        }
     }
 }

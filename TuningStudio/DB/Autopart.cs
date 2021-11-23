@@ -16,10 +16,9 @@ namespace TuningStudio.DB
     {
         public int ID { get; set; }
         public string Unit { get; set; }
-        public decimal Price { get; set; }
         public int GuaranteeMonth { get; set; }
         public int ManufacturerID { get; set; }
-        public Nullable<int> TypeOfWorkID { get; set; }
+        public int TypeOfWorkID { get; set; }
     
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual TypeOfWork TypeOfWork { get; set; }

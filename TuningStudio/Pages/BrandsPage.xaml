@@ -75,7 +75,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Source="../Pictures/Item.png" Width="100" Height="100" HorizontalAlignment="Center"/>
+                        <Image Grid.Row="0" Source="../Pictures/Brand.png" Width="100" Height="100" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Path = Model.Brand.NameOfBrand}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"
                                    FontWeight="Bold" FontSize="15" Margin="10" Foreground="#fff" />
                         <TextBlock Text="{Binding Path = Model.NameOfModel}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" TextWrapping="Wrap"

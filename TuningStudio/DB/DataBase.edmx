@@ -11,10 +11,9 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Unit" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="GuaranteeMonth" Type="int" Nullable="false" />
           <Property Name="ManufacturerID" Type="int" Nullable="false" />
-          <Property Name="TypeOfWorkID" Type="int" />
+          <Property Name="TypeOfWorkID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Autorization">
           <Key>
@@ -140,8 +139,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Autopart_TypeOfWork1">
-          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="0..1" />
+        <Association Name="FK_Autopart_TypeOfWork">
+          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="1" />
           <End Role="Autopart" Type="Self.Autopart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeOfWork">
@@ -303,7 +302,7 @@
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
-          <AssociationSet Name="FK_Autopart_TypeOfWork1" Association="Self.FK_Autopart_TypeOfWork1">
+          <AssociationSet Name="FK_Autopart_TypeOfWork" Association="Self.FK_Autopart_TypeOfWork">
             <End Role="TypeOfWork" EntitySet="TypeOfWork" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
@@ -363,12 +362,11 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="GuaranteeMonth" Type="Int32" Nullable="false" />
           <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
-          <Property Name="TypeOfWorkID" Type="Int32" />
+          <Property Name="TypeOfWorkID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Autopart_Manufacturer" FromRole="Autopart" ToRole="Manufacturer" />
-          <NavigationProperty Name="TypeOfWork" Relationship="Self.FK_Autopart_TypeOfWork1" FromRole="Autopart" ToRole="TypeOfWork" />
+          <NavigationProperty Name="TypeOfWork" Relationship="Self.FK_Autopart_TypeOfWork" FromRole="Autopart" ToRole="TypeOfWork" />
         </EntityType>
         <EntityType Name="Autorization">
           <Key>
@@ -488,7 +486,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Autopart" Relationship="Self.FK_Autopart_TypeOfWork1" FromRole="TypeOfWork" ToRole="Autopart" />
+          <NavigationProperty Name="Autopart" Relationship="Self.FK_Autopart_TypeOfWork" FromRole="TypeOfWork" ToRole="Autopart" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_TypeOfWork" FromRole="TypeOfWork" ToRole="Order" />
         </EntityType>
         <EntityType Name="Vehicle">
@@ -518,8 +516,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Autopart_TypeOfWork1">
-          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="0..1" />
+        <Association Name="FK_Autopart_TypeOfWork">
+          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="1" />
           <End Role="Autopart" Type="Self.Autopart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeOfWork">
@@ -681,7 +679,7 @@
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
-          <AssociationSet Name="FK_Autopart_TypeOfWork1" Association="Self.FK_Autopart_TypeOfWork1">
+          <AssociationSet Name="FK_Autopart_TypeOfWork" Association="Self.FK_Autopart_TypeOfWork">
             <End Role="TypeOfWork" EntitySet="TypeOfWork" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
@@ -741,7 +739,6 @@
               <MappingFragment StoreEntitySet="Autopart">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="GuaranteeMonth" ColumnName="GuaranteeMonth" />
                 <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
                 <ScalarProperty Name="TypeOfWorkID" ColumnName="TypeOfWorkID" />
