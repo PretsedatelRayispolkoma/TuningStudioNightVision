@@ -31,30 +31,35 @@ namespace TuningStudio.Pages
                 NewTypeOfWorkCB.SelectedItem = editOrder.TypeOfWork;
                 NewTypeOfWorkCB.IsEnabled = false;
                 DateOfOrderDP.SelectedDate = editOrder.DateOfOrder;
+                DateOfOrderDP.IsEnabled = false;
+                AddOrderBtn.Visibility = Visibility.Hidden;
             }
-
-
-            DateOfOrderDP.DisplayDateStart = DateTime.Now;
         }
 
         public AddOrderPage()
         {
             InitializeComponent();
             DateOfOrderDP.DisplayDateStart = DateTime.Now;
+            UpdateOrderBtn.Visibility = Visibility.Hidden;
         }
 
         private void NewVehiclesCB_Loaded(object sender, RoutedEventArgs e)
         {
-            var currentUserCars = from vehicle in MainWindow.db.Vehicle
-                                  where vehicle.ClientID == MainWindow.IDClient
-                                  select vehicle;
-            NewVehiclesCB.ItemsSource = currentUserCars.ToList();
-            NewVehiclesCB.DisplayMemberPath = "VINCode";
+            if(MainWindow.IDRole != 1)
+            {
+                NewVehiclesCB.ItemsSource = MainWindow.db.Vehicle.Where(v => v.ClientID == MainWindow.IDClient).ToList();
+                NewVehiclesCB.DisplayMemberPath = "VINCode";
+            }
+            else
+            {
+                NewVehiclesCB.ItemsSource = MainWindow.db.Vehicle.ToList();
+                NewVehiclesCB.DisplayMemberPath = "VINCode";
+            }
         }
 
         private void AddOrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (NewTypeOfWorkCB.SelectedItem == null || NewVehiclesCB.SelectedItem == null)
+            if (NewTypeOfWorkCB.SelectedItem == null || NewVehiclesCB.SelectedItem == null || DateOfOrderDP.SelectedDate == null)
             {
                 MessageBox.Show("Enter the data");
             }
@@ -68,6 +73,7 @@ namespace TuningStudio.Pages
 
                 order.DateOfOrder = DateOfOrderDP.SelectedDate;
                 order.IsAccepted = false;
+
                 MainWindow.db.Order.Add(order);
                 MainWindow.db.SaveChanges();
                 MessageBox.Show("Your order is successfully added");
@@ -91,6 +97,37 @@ namespace TuningStudio.Pages
             if(MainWindow.IDRole != 1)
             {
                 StatusGrid.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                InWaitingRB.IsChecked = true;
+            }
+        }
+
+        private void UpdateOrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var currentVehicle = NewVehiclesCB.SelectedItem as Vehicle;
+            var currentTOW = NewTypeOfWorkCB.SelectedItem as TypeOfWork;
+            Order currentOrder = new Order();
+            if (InWaitingRB.IsChecked == true)
+            {
+                return;
+            }
+            else if (AcceptedRB.IsChecked == true)
+            {
+                currentOrder.VehicleID = currentVehicle.ID;
+                currentOrder.TypeOfWorkID = currentTOW.ID;
+                currentOrder.IsAccepted = true;
+                currentOrder.DateOfOrder = DateOfOrderDP.SelectedDate;
+
+                MainWindow.db.SaveChanges();
+
+                //currentOrder.IsAccepted = true;
+                //MainWindow.db.Order.Add(currentOrder);
+                
+                //MainWindow.db.SaveChanges();
+
+                this.NavigationService.GoBack();
             }
         }
     }

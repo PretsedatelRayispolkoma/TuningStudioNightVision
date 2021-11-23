@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="efb7f493f3244f26a423a1d9b1d5a5de" Name="Diagram1">
+      <Diagram DiagramId="d939e2e80bf9443db53b711d8377a058" Name="Diagram1">
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Autopart" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Autorization" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Body" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Model" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Order" Width="1.5" PointX="12" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Role" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.TypeOfWork" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Yapparov321AtelyeNightVisionModel.Vehicle" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="Yapparov321AtelyeNightVisionModel.FK_Autopart_Manufacturer" ManuallyRouted="false" />

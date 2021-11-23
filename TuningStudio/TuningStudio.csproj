@@ -121,9 +121,6 @@
     <Compile Include="DB\Role.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\sysdiagrams.cs">
-      <DependentUpon>DataBase.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\TypeOfWork.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>

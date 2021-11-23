@@ -50,7 +50,7 @@
             <ComboBox x:Name="NewTypeOfWorkCB" Grid.Row="3" Grid.Column="0" Width="250" Height="30" Loaded="NewTypeOfWorkCB_Loaded" />
 
             <Label Content="Date of creation" Grid.Row="0" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#c4c4c4"/>
-            <Calendar x:Name="DateOfOrderDP"  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Background="White"/>
+            <Calendar x:Name="DateOfOrderDP"  Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Background="White"/>
 
             <Label Content="Status" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#c4c4c4" FontSize="20"/>
             
@@ -59,12 +59,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <RadioButton x:Name="AcceptedRB" Grid.Column="0" Foreground="#c4c4c4" FontSize="15" Content="Accepted" Width="250" Height="30" Loaded="NewStatusCB_Loaded"/>
+                <RadioButton x:Name="AcceptedRB" Grid.Column="0" Foreground="#c4c4c4" FontSize="15" Content="Accepted" Width="250" Height="30"/>
                 <RadioButton x:Name="InWaitingRB" Grid.Column="1" Foreground="#c4c4c4" FontSize="15" Content="In Waiting" Width="250" Height="30"/>
             </Grid>
             
 
             <Button x:Name="AddOrderBtn" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="100" Height="30" Content="Add" Foreground="DimGray" FontSize="15" Click="AddOrderBtn_Click"/>
+            <Button x:Name="UpdateOrderBtn" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="100" Height="30" Content="Update" Foreground="DimGray" FontSize="15" Click="UpdateOrderBtn_Click"/>
         </Grid>
 
     </Grid>
