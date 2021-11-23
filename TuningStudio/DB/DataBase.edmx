@@ -14,7 +14,7 @@
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="GuaranteeMonth" Type="int" Nullable="false" />
           <Property Name="ManufacturerID" Type="int" Nullable="false" />
-          <Property Name="TypeOfWorkID" Type="int" Nullable="false" />
+          <Property Name="TypeOfWorkID" Type="int" />
         </EntityType>
         <EntityType Name="Autorization">
           <Key>
@@ -99,6 +99,16 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOfRole" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="TypeOfWork">
           <Key>
             <PropertyRef Name="ID" />
@@ -130,8 +140,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Autopart_TypeOfWork">
-          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="1" />
+        <Association Name="FK_Autopart_TypeOfWork1">
+          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="0..1" />
           <End Role="Autopart" Type="Self.Autopart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeOfWork">
@@ -286,13 +296,14 @@
           <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfWork" EntityType="Self.TypeOfWork" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Autopart_Manufacturer" Association="Self.FK_Autopart_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
-          <AssociationSet Name="FK_Autopart_TypeOfWork" Association="Self.FK_Autopart_TypeOfWork">
+          <AssociationSet Name="FK_Autopart_TypeOfWork1" Association="Self.FK_Autopart_TypeOfWork1">
             <End Role="TypeOfWork" EntitySet="TypeOfWork" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
@@ -355,9 +366,9 @@
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="GuaranteeMonth" Type="Int32" Nullable="false" />
           <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
-          <Property Name="TypeOfWorkID" Type="Int32" Nullable="false" />
+          <Property Name="TypeOfWorkID" Type="Int32" />
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Autopart_Manufacturer" FromRole="Autopart" ToRole="Manufacturer" />
-          <NavigationProperty Name="TypeOfWork" Relationship="Self.FK_Autopart_TypeOfWork" FromRole="Autopart" ToRole="TypeOfWork" />
+          <NavigationProperty Name="TypeOfWork" Relationship="Self.FK_Autopart_TypeOfWork1" FromRole="Autopart" ToRole="TypeOfWork" />
         </EntityType>
         <EntityType Name="Autorization">
           <Key>
@@ -460,6 +471,16 @@
           <Property Name="NameOfRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Autorization" Relationship="Self.FK_Autorization_Role" FromRole="Role" ToRole="Autorization" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="TypeOfWork">
           <Key>
             <PropertyRef Name="ID" />
@@ -467,7 +488,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOfWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Autopart" Relationship="Self.FK_Autopart_TypeOfWork" FromRole="TypeOfWork" ToRole="Autopart" />
+          <NavigationProperty Name="Autopart" Relationship="Self.FK_Autopart_TypeOfWork1" FromRole="TypeOfWork" ToRole="Autopart" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_TypeOfWork" FromRole="TypeOfWork" ToRole="Order" />
         </EntityType>
         <EntityType Name="Vehicle">
@@ -497,8 +518,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Autopart_TypeOfWork">
-          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="1" />
+        <Association Name="FK_Autopart_TypeOfWork1">
+          <End Role="TypeOfWork" Type="Self.TypeOfWork" Multiplicity="0..1" />
           <End Role="Autopart" Type="Self.Autopart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeOfWork">
@@ -653,13 +674,14 @@
           <EntitySet Name="Model" EntityType="Self.Model" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TypeOfWork" EntityType="Self.TypeOfWork" />
           <EntitySet Name="Vehicle" EntityType="Self.Vehicle" />
           <AssociationSet Name="FK_Autopart_Manufacturer" Association="Self.FK_Autopart_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
-          <AssociationSet Name="FK_Autopart_TypeOfWork" Association="Self.FK_Autopart_TypeOfWork">
+          <AssociationSet Name="FK_Autopart_TypeOfWork1" Association="Self.FK_Autopart_TypeOfWork1">
             <End Role="TypeOfWork" EntitySet="TypeOfWork" />
             <End Role="Autopart" EntitySet="Autopart" />
           </AssociationSet>
@@ -815,6 +837,17 @@
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NameOfRole" ColumnName="NameOfRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Yapparov321AtelyeNightVisionModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

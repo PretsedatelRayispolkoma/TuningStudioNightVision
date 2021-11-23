@@ -90,16 +90,15 @@ namespace TuningStudio.Pages
             {
                 return;
             }
-
+            MainWindow.db.TypeOfWork.Remove(servToDelete);
             try
             {
-                MainWindow.db.TypeOfWork.Remove(servToDelete);
                 MainWindow.db.SaveChanges();
                 this.NavigationService.Refresh();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show($"{ex}");
+                MessageBox.Show("You can't delete base services which  are the foundation of the whole company!");
             }
         }
 
