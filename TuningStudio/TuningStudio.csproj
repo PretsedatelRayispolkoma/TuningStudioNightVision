@@ -139,6 +139,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddCarManufacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddModelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +194,12 @@
     </Compile>
     <Compile Include="Pages\AddBrandPage.xaml.cs">
       <DependentUpon>AddBrandPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddCarManufacter.xaml.cs">
+      <DependentUpon>AddCarManufacter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddModelPage.xaml.cs">
+      <DependentUpon>AddModelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddOrderPage.xaml.cs">
       <DependentUpon>AddOrderPage.xaml</DependentUpon>

@@ -19,7 +19,9 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -32,17 +34,16 @@
         </Button>
 
         <Label Content="New brand" Grid.Row="1" Grid.Column="1" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-        <TextBox x:Name="NewBrandTB" Grid.Row="2" Grid.Column="1" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="NewBrandCB" Grid.Row="2" Grid.Column="1" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Loaded="NewBrandTB_Loaded" SelectionChanged="NewBrandCB_SelectionChanged"/>
 
         <Label Content="Model" Grid.Row="1" Grid.Column="2" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
-        <TextBox x:Name="NewModelTB" Grid.Row="2" Grid.Column="2" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="NewModelCB" Grid.Row="2" Grid.Column="2" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Loaded="NewModelTB_Loaded" SelectionChanged="NewModelCB_SelectionChanged"/>
 
-        <Label Content="Body" Grid.Row="2" Grid.Column="1" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
-        <TextBox x:Name="NewBodyTB" Grid.Row="3" Grid.Column="1" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label Content="Body" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
+        <TextBox x:Name="NewBodyTB" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Loaded="NewBodyTB_Loaded"/>
 
-        <Label Content="Country" Grid.Row="2" Grid.Column="2" Foreground="#c4c4c4" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Center"/>
-        <ComboBox x:Name="CountryCB" Grid.Row="3" Grid.Column="2" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Loaded="CountryCB_Loaded"/>
-
-        <Button x:Name="AddBrandBtn" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Add" Click="AddBrandBtn_Click"/>
+        <Button x:Name="AddNewBrandBtn" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Content="Add brand" Foreground="#fff" BorderBrush="Transparent" Click="AddNewBrandBtn_Click"/>
+        <Button x:Name="AddModelBtn" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Content="Add model" Foreground="#fff" BorderBrush="Transparent" Click="AddModelBtn_Click"/>
+        <Button x:Name="AddBrandBtn" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Width="120" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Add" Click="AddBrandBtn_Click"/>
     </Grid>
 </Page>

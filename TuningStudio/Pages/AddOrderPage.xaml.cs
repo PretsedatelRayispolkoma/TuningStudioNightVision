@@ -21,24 +21,28 @@ namespace TuningStudio.Pages
     /// </summary>
     public partial class AddOrderPage : Page
     {
+        Order currentEditOrder;
         public AddOrderPage(Order editOrder)
         {
             InitializeComponent();
             if (editOrder != null)
             {
+                this.currentEditOrder = MainWindow.db.Order.Attach(editOrder);
                 NewVehiclesCB.SelectedItem = editOrder.Vehicle;
                 NewVehiclesCB.IsEnabled = false;
                 NewTypeOfWorkCB.SelectedItem = editOrder.TypeOfWork;
                 NewTypeOfWorkCB.IsEnabled = false;
                 DateOfOrderDP.SelectedDate = editOrder.DateOfOrder;
                 DateOfOrderDP.IsEnabled = false;
-                AddOrderBtn.Visibility = Visibility.Hidden;
+                AddOrderBtn.Visibility = Visibility.Hidden;    
+                DataContext = this.currentEditOrder;
             }
         }
 
         public AddOrderPage()
         {
             InitializeComponent();
+            StatusGrid.Visibility = Visibility.Hidden;
             DateOfOrderDP.DisplayDateStart = DateTime.Now;
             UpdateOrderBtn.Visibility = Visibility.Hidden;
         }
@@ -108,24 +112,25 @@ namespace TuningStudio.Pages
         {
             var currentVehicle = NewVehiclesCB.SelectedItem as Vehicle;
             var currentTOW = NewTypeOfWorkCB.SelectedItem as TypeOfWork;
-            Order currentOrder = new Order();
             if (InWaitingRB.IsChecked == true)
             {
                 return;
             }
             else if (AcceptedRB.IsChecked == true)
             {
-                currentOrder.VehicleID = currentVehicle.ID;
-                currentOrder.TypeOfWorkID = currentTOW.ID;
-                currentOrder.IsAccepted = true;
-                currentOrder.DateOfOrder = DateOfOrderDP.SelectedDate;
+                currentEditOrder.VehicleID = currentVehicle.ID;
+                currentEditOrder.TypeOfWorkID = currentTOW.ID;
+                currentEditOrder.IsAccepted = true;
+                currentEditOrder.DateOfOrder = DateOfOrderDP.SelectedDate;
 
-                MainWindow.db.SaveChanges();
-
-                //currentOrder.IsAccepted = true;
-                //MainWindow.db.Order.Add(currentOrder);
-                
-                //MainWindow.db.SaveChanges();
+                try
+                {
+                    MainWindow.db.SaveChanges();
+                }
+                catch 
+                {
+                    MessageBox.Show("Error");
+                }
 
                 this.NavigationService.GoBack();
             }

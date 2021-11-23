@@ -64,8 +64,16 @@ namespace TuningStudio.Pages
             }
 
             MainWindow.db.Autopart.Add(newAutopart);
-            MainWindow.db.SaveChanges();
-            MessageBox.Show("Successfuly added");
+            try
+            {
+                MainWindow.db.SaveChanges();
+                MessageBox.Show("Successfuly added");
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+
             this.NavigationService.GoBack();
         }
     }

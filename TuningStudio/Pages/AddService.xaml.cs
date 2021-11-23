@@ -32,8 +32,16 @@ namespace TuningStudio.Pages
             tow.NameOfWork = NewWorkTB.Text;
             tow.Description = NewDescrTB.Text;
             MainWindow.db.TypeOfWork.Add(tow);
-            MainWindow.db.SaveChanges();
-            MessageBox.Show("The changes is successfuly saved");
+            try
+            {
+                MainWindow.db.SaveChanges();
+                MessageBox.Show("The changes is successfuly saved");
+            }
+            catch 
+            {
+                MessageBox.Show("Error");
+            }
+
             this.NavigationService.GoBack();
         }
 

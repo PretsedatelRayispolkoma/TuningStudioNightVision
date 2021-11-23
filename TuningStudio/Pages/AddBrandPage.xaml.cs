@@ -26,40 +26,79 @@ namespace TuningStudio.Pages
             InitializeComponent();
         }
 
-        private void CountryCB_Loaded(object sender, RoutedEventArgs e)
-        {
-            CountryCB.ItemsSource = MainWindow.db.Country.ToList();
-            CountryCB.DisplayMemberPath = "NameOfCountry";
-        }
-
         private void AddBrandBtn_Click(object sender, RoutedEventArgs e)
         {
-            Brand newBrand = new Brand();
-            Model newModel = new Model();
-            Body newBody = new Body();
+            if(NewBrandCB.SelectedItem == null || NewModelCB.SelectedItem == null || NewBodyTB.Text == "")
+            {
+                MessageBox.Show("Enter the data");
+            }
+            else
+            {
+                Body newBody = new Body();
 
-            var selectedCountry = CountryCB.SelectedItem as Country;
+                var selectedModel = NewModelCB.SelectedItem as Model;
 
-            newBrand.NameOfBrand = NewBrandTB.Text;
-            newBrand.CountryID = selectedCountry.ID;
+                newBody.ModelID = selectedModel.ID;
 
-            newModel.NameOfModel = NewModelTB.Text;
-            newModel.BrandID = newBrand.ID;
+                newBody.NameOfBody = NewBodyTB.Text;
 
-            newBody.NameOfBody = NewBodyTB.Text;
-            newBody.ModelID = newModel.ID;
+                MainWindow.db.Body.Add(newBody);
 
-            MainWindow.db.Brand.Add(newBrand);
-            MainWindow.db.Model.Add(newModel);
-            MainWindow.db.Body.Add(newBody);
-            MainWindow.db.SaveChanges();
-            MessageBox.Show("Changes are successfuly saved");
-            this.NavigationService.GoBack();
+                try
+                {
+                    MainWindow.db.SaveChanges();
+                    MessageBox.Show("Changes are successfuly saved");
+                }
+                catch {
+                    MessageBox.Show("Error");
+                }
+
+                this.NavigationService.GoBack();
+            }
         }
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
+        }
+
+        private void NewBrandTB_Loaded(object sender, RoutedEventArgs e)
+        {
+            NewBrandCB.ItemsSource = MainWindow.db.Brand.ToList();
+            NewBrandCB.DisplayMemberPath = "NameOfBrand";
+        }
+
+        private void NewModelTB_Loaded(object sender, RoutedEventArgs e)
+        {
+            NewModelCB.IsEnabled = false;
+        }
+
+        private void AddNewBrandBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddCarManufacter());
+        }
+
+        private void NewBrandCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedBrand = NewBrandCB.SelectedItem as Brand;
+            NewModelCB.ItemsSource = MainWindow.db.Model.Where(m => m.BrandID == selectedBrand.ID ).ToList();
+            NewModelCB.DisplayMemberPath = "NameOfModel";
+            NewModelCB.IsEnabled = true;
+        }
+
+        private void NewModelCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            NewBodyTB.IsEnabled = true;
+        }
+
+        private void NewBodyTB_Loaded(object sender, RoutedEventArgs e)
+        {
+            NewBodyTB.IsEnabled = false;
+        }
+
+        private void AddModelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddModelPage());
         }
     }
 }

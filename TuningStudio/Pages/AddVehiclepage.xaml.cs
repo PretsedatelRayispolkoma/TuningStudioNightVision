@@ -125,8 +125,16 @@ namespace TuningStudio.Pages
                 newVehicle.ClientID = MainWindow.IDClient;
 
                 MainWindow.db.Vehicle.Add(newVehicle);
-                MainWindow.db.SaveChanges();
-                MessageBox.Show("Vehicle if successfuly added");
+                try
+                {
+                    MainWindow.db.SaveChanges();
+                    MessageBox.Show("Vehicle if successfuly added");
+                }
+                catch 
+                {
+                    MessageBox.Show("Error");
+                }
+
                 this.NavigationService.GoBack();
             }
         }
