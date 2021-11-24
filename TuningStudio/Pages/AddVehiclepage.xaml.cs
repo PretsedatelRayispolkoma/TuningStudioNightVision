@@ -119,7 +119,16 @@ namespace TuningStudio.Pages
 
                 Vehicle newVehicle = new Vehicle();
                 newVehicle.VINCode = VinCodeTB.Text;
-                newVehicle.Year = Convert.ToInt32(yearTB.Text);
+                try
+                {
+                    newVehicle.Year = Convert.ToInt32(yearTB.Text);
+
+                }
+                catch
+                {
+                    MessageBox.Show("incorrect data entry format");
+                    return;
+                }
                 newVehicle.ColorID = selectedColor.ID;
                 newVehicle.BodyID = selectedBody.ID;
                 newVehicle.ClientID = MainWindow.IDClient;
